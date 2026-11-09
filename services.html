@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -471,4 +470,260 @@
     </div>
   </div>
 </section>
+
+    
+<!-- BLOCK 3: MALO VTC LUXURY GALLERY -->
+
+<style>
+  .gallery-section {
+    background: #0c1e2f;
+    border-top: 1px solid rgba(215,184,120,.12);
+    border-bottom: 1px solid rgba(215,184,120,.12);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 210px;
+    gap: 14px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: zoom-in;
+    border: 1px solid rgba(215,184,120,.15);
+    background: #14293b;
+  }
+
+  .gallery-item.featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease, filter .4s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.07);
+    filter: brightness(.75);
+  }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 18px 15px;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    background: linear-gradient(
+      transparent, rgba(8,23,38,.9)
+    );
+    pointer-events: none;
+  }
+
+  .gallery-caption::before {
+    content: "✦ ";
+    color: var(--gold);
+  }
+
+  .gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 55px 20px;
+    background: rgba(3,10,18,.97);
+  }
+
+  .gallery-lightbox.open {
+    display: flex;
+  }
+
+  .gallery-lightbox img {
+    width: auto;
+    max-width: 95%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+
+  .lightbox-caption {
+    margin-top: 16px;
+    color: var(--gold);
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 850px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 190px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .gallery-grid {
+      grid-auto-rows: 155px;
+      gap: 9px;
+    }
+
+    .gallery-caption {
+      font-size: 11px;
+      padding: 20px 10px 10px;
+    }
+  }
+</style>
+
+<section class="section gallery-section" id="galerie">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow"
+        data-fr="GALERIE PRESTIGE"
+        data-en="PRESTIGE GALLERY">
+        GALERIE PRESTIGE
+      </div>
+
+      <h2
+        data-fr="L'élégance &lt;span&gt;en images.&lt;/span&gt;"
+        data-en="Elegance &lt;span&gt;in pictures.&lt;/span&gt;">
+        L'élégance <span>en images.</span>
+      </h2>
+
+      <p
+        data-fr="Un aperçu de l'univers du transport privé et de l'art de voyager."
+        data-en="A glimpse into the world of private transport and the art of travel.">
+        Un aperçu de l'univers du transport privé et de l'art de voyager.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item featured" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-01.jpg"
+          alt="Univers du transport privé de prestige"
+          loading="lazy">
+        <div class="gallery-caption"
+          data-fr="L'art du voyage"
+          data-en="The art of travel">
+          L'art du voyage
+        </div>
+      </div>
+
+      <div class="gallery-item" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-02.jpg"
+          alt="Intérieur automobile élégant" loading="lazy">
+        <div class="gallery-caption"
+          data-fr="Confort raffiné"
+          data-en="Refined comfort">
+          Confort raffiné
+        </div>
+      </div>
+
+      <div class="gallery-item" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-03.jpg"
+          alt="Paris au coucher du soleil" loading="lazy">
+        <div class="gallery-caption"
+          data-fr="Paris autrement"
+          data-en="Discover Paris differently">
+          Paris autrement
+        </div>
+      </div>
+
+      <div class="gallery-item" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-04.jpg"
+          alt="Détails d'un véhicule haut de gamme" loading="lazy">
+        <div class="gallery-caption"
+          data-fr="Chaque détail compte"
+          data-en="Every detail matters">
+          Chaque détail compte
+        </div>
+      </div>
+
+      <div class="gallery-item" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-05.jpg"
+          alt="Arrivée devant un hôtel élégant" loading="lazy">
+        <div class="gallery-caption"
+          data-fr="Arrivées élégantes"
+          data-en="Elegant arrivals">
+          Arrivées élégantes
+        </div>
+      </div>
+
+      <div class="gallery-item" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-06.jpg"
+          alt="Architecture parisienne" loading="lazy">
+        <div class="gallery-caption"
+          data-fr="La beauté de Paris"
+          data-en="The beauty of Paris">
+          La beauté de Paris
+        </div>
+      </div>
+
+      <div class="gallery-item" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-07.jpg"
+          alt="Voyage automobile de prestige" loading="lazy">
+        <div class="gallery-caption"
+          data-fr="Voyager avec style"
+          data-en="Travel in style">
+          Voyager avec style
+        </div>
+      </div>
+
+      <div class="gallery-item" tabindex="0"
+        role="button" aria-label="Agrandir la photo">
+        <img src="assets/gallery-08.jpg"
+          alt="Paris illuminé la nuit" loading="lazy">
+        <div class="gallery-caption"
+          data-fr="Paris by night"
+          data-en="Paris by night">
+          Paris by night
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FULL-SCREEN GALLERY VIEWER -->
+<div class="gallery-lightbox" id="galleryLightbox"
+  role="dialog" aria-modal="true"
+  aria-label="Galerie photo" aria-hidden="true">
+
+  <button class="lightbox-close" id="lightboxClose"
+    type="button" aria-label="Fermer">×</button>
+
+  <img id="lightboxImage" alt="">
+
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
     
