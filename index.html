@@ -1428,10 +1428,17 @@
         }
       });
 
-      languageButton.textContent =
-        selectedLanguage === "fr"
-          ? "🇫🇷 FR ▾"
-          : "🇬🇧 EN ▾";
+      const flagCode = selectedLanguage === "fr" ? "fr" : "gb";
+const languageCode = selectedLanguage === "fr" ? "FR" : "EN";
+
+languageButton.innerHTML = `
+  <img
+    class="language-flag"
+    src="https://flagcdn.com/w40/${flagCode}.png"
+    alt="">
+  <span>${languageCode}</span>
+  <span aria-hidden="true">▾</span>
+`;
 
       localStorage.setItem(
         "maloLanguage",
