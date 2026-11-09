@@ -585,3 +585,498 @@
         </div>
       </div>
     </section>
+<!-- ==========================================
+     BLOCK 2 — PREMIUM SERVICES SHOWCASE
+========================================== -->
+
+<style>
+  /* PREMIUM SERVICE SHOWCASE */
+
+  .premium-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .premium-service-card {
+    position: relative;
+    min-height: 440px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(230,189,104,.25);
+    background-color: #10263e;
+    background-size: cover;
+    background-position: center;
+    isolation: isolate;
+    transition: transform .4s, border-color .4s;
+  }
+
+  .premium-service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+  }
+
+  .premium-service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to top,
+      rgba(2,10,21,.98),
+      rgba(2,10,21,.72) 45%,
+      rgba(2,10,21,.12)
+    );
+  }
+
+  .premium-service-content {
+    padding: 35px 30px;
+  }
+
+  .premium-service-number {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
+
+  .premium-service-card h3 {
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 0 0 15px;
+  }
+
+  .premium-service-card p {
+    color: #d5dce5;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+
+  .premium-service-card a {
+    display: inline-flex;
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 800;
+    transition: transform .3s;
+  }
+
+  .premium-service-card a:hover {
+    transform: translateX(5px);
+  }
+
+  /* INDIVIDUAL SERVICE PHOTOGRAPHS */
+
+  .service-private {
+    background-image: url("assets/service-private.jpg");
+  }
+
+  .service-airport {
+    background-image: url("assets/service-airport.jpg");
+  }
+
+  .service-business {
+    background-image: url("assets/service-business.jpg");
+  }
+
+  .service-tourism {
+    background-image: url("assets/service-tourism.jpg");
+  }
+
+  .service-distance {
+    background-image: url("assets/service-distance.jpg");
+  }
+
+  .service-events {
+    background-image: url("assets/service-events.jpg");
+  }
+
+  /* THE MALO VTC EXPERIENCE */
+
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+  }
+
+  .experience-image {
+    min-height: 570px;
+    border-radius: 18px;
+    border: 1px solid rgba(230,189,104,.3);
+    background:
+      linear-gradient(
+        rgba(6,20,38,.08),
+        rgba(6,20,38,.4)
+      ),
+      url("assets/malo-experience.jpg") center/cover;
+    position: relative;
+  }
+
+  .experience-image::after {
+    content: "";
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(230,189,104,.45);
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
+  .experience-content p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 22px;
+  }
+
+  .experience-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 35px 0;
+  }
+
+  .experience-feature {
+    border-left: 2px solid var(--gold);
+    padding-left: 18px;
+  }
+
+  .experience-feature strong {
+    display: block;
+    color: var(--white);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .experience-feature span {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 950px) {
+    .premium-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-grid {
+      gap: 35px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .premium-services-grid,
+    .experience-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .premium-service-card {
+      min-height: 390px;
+    }
+
+    .experience-image {
+      min-height: 360px;
+    }
+
+    .experience-features {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<!-- OUR CHAUFFEUR SERVICES -->
+
+<section class="section section-dark" id="prestations">
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-label"
+            data-fr="NOS PRESTATIONS"
+            data-en="OUR SERVICES">
+        NOS PRESTATIONS
+      </span>
+
+      <h2 class="section-title"
+          data-fr="Un service pour &lt;span&gt;chaque occasion.&lt;/span&gt;"
+          data-en="A service for &lt;span&gt;every occasion.&lt;/span&gt;">
+        Un service pour <span>chaque occasion.</span>
+      </h2>
+
+      <p class="section-description"
+         data-fr="Découvrez nos solutions de transport privé, pensées pour vous accompagner avec élégance dans tous vos déplacements."
+         data-en="Discover our private chauffeur solutions, designed to accompany you elegantly on every journey.">
+        Découvrez nos solutions de transport privé,
+        pensées pour vous accompagner avec élégance
+        dans tous vos déplacements.
+      </p>
+
+    </div>
+
+    <div class="premium-services-grid">
+
+      <!-- SERVICE 01 -->
+
+      <article class="premium-service-card service-private">
+        <div class="premium-service-content">
+
+          <span class="premium-service-number">01 / 06</span>
+
+          <h3 data-fr="Chauffeur privé"
+              data-en="Private Chauffeur">
+            Chauffeur privé
+          </h3>
+
+          <p data-fr="Profitez d'un transport personnalisé, adapté à vos déplacements quotidiens, personnels et professionnels."
+             data-en="Enjoy personalised transport tailored to your everyday, personal and professional journeys.">
+            Profitez d'un transport personnalisé,
+            adapté à vos déplacements quotidiens,
+            personnels et professionnels.
+          </p>
+
+          <a href="reservation.html"
+             data-fr="Réserver ce service →"
+             data-en="Book This Service →">
+            Réserver ce service →
+          </a>
+
+        </div>
+      </article>
+
+      <!-- SERVICE 02 -->
+
+      <article class="premium-service-card service-airport">
+        <div class="premium-service-content">
+
+          <span class="premium-service-number">02 / 06</span>
+
+          <h3 data-fr="Aéroports & Transferts"
+              data-en="Airports & Transfers">
+            Aéroports & Transferts
+          </h3>
+
+          <p data-fr="Organisez vos transferts vers les aéroports et les gares de Paris en toute sérénité."
+             data-en="Arrange your transfers to Paris airports and train stations with complete peace of mind.">
+            Organisez vos transferts vers les aéroports
+            et les gares de Paris en toute sérénité.
+          </p>
+
+          <a href="reservation.html"
+             data-fr="Réserver ce service →"
+             data-en="Book This Service →">
+            Réserver ce service →
+          </a>
+
+        </div>
+      </article>
+
+      <!-- SERVICE 03 -->
+
+      <article class="premium-service-card service-business">
+        <div class="premium-service-content">
+
+          <span class="premium-service-number">03 / 06</span>
+
+          <h3 data-fr="Voyages d'affaires"
+              data-en="Business Travel">
+            Voyages d'affaires
+          </h3>
+
+          <p data-fr="Un accompagnement professionnel pour vos rendez-vous, réunions et déplacements d'affaires."
+             data-en="Professional transport for your appointments, meetings and business journeys.">
+            Un accompagnement professionnel
+            pour vos rendez-vous, réunions
+            et déplacements d'affaires.
+          </p>
+
+          <a href="reservation.html"
+             data-fr="Réserver ce service →"
+             data-en="Book This Service →">
+            Réserver ce service →
+          </a>
+
+        </div>
+      </article>
+
+      <!-- SERVICE 04 -->
+
+      <article class="premium-service-card service-tourism">
+        <div class="premium-service-content">
+
+          <span class="premium-service-number">04 / 06</span>
+
+          <h3 data-fr="Tourisme & Spectacles"
+              data-en="Tourism & Shows">
+            Tourisme & Spectacles
+          </h3>
+
+          <p data-fr="Découvrez Paris, ses monuments et ses événements à votre rythme, avec un chauffeur dédié."
+             data-en="Discover Paris, its landmarks and events at your own pace with a dedicated chauffeur.">
+            Découvrez Paris, ses monuments
+            et ses événements à votre rythme,
+            avec un chauffeur dédié.
+          </p>
+
+          <a href="reservation.html"
+             data-fr="Réserver ce service →"
+             data-en="Book This Service →">
+            Réserver ce service →
+          </a>
+
+        </div>
+      </article>
+
+      <!-- SERVICE 05 -->
+
+      <article class="premium-service-card service-distance">
+        <div class="premium-service-content">
+
+          <span class="premium-service-number">05 / 06</span>
+
+          <h3 data-fr="Courtes & Longues Distances"
+              data-en="Short & Long Distances">
+            Courtes & Longues Distances
+          </h3>
+
+          <p data-fr="Voyagez selon vos besoins, pour un trajet de proximité ou une destination plus éloignée."
+             data-en="Travel according to your needs, whether for a local journey or a more distant destination.">
+            Voyagez selon vos besoins,
+            pour un trajet de proximité
+            ou une destination plus éloignée.
+          </p>
+
+          <a href="reservation.html"
+             data-fr="Réserver ce service →"
+             data-en="Book This Service →">
+            Réserver ce service →
+          </a>
+
+        </div>
+      </article>
+
+      <!-- SERVICE 06 -->
+
+      <article class="premium-service-card service-events">
+        <div class="premium-service-content">
+
+          <span class="premium-service-number">06 / 06</span>
+
+          <h3 data-fr="Événements & Soirées"
+              data-en="Events & Evenings">
+            Événements & Soirées
+          </h3>
+
+          <p data-fr="Profitez de vos événements et soirées avec un service de transport adapté à votre programme."
+             data-en="Enjoy your events and evenings with a transport service tailored to your plans.">
+            Profitez de vos événements
+            et soirées avec un service de transport
+            adapté à votre programme.
+          </p>
+
+          <a href="reservation.html"
+             data-fr="Réserver ce service →"
+             data-en="Book This Service →">
+            Réserver ce service →
+          </a>
+
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE MALO VTC EXPERIENCE -->
+
+<section class="section section-deep" id="experience">
+  <div class="container experience-grid">
+
+    <div class="experience-image"
+         role="img"
+         aria-label="Expérience MALO VTC">
+    </div>
+
+    <div class="experience-content">
+
+      <span class="section-label"
+            data-fr="L'EXPÉRIENCE MALO VTC"
+            data-en="THE MALO VTC EXPERIENCE">
+        L'EXPÉRIENCE MALO VTC
+      </span>
+
+      <h2 class="section-title"
+          data-fr="Le voyage devient &lt;span&gt;un plaisir.&lt;/span&gt;"
+          data-en="Make every journey &lt;span&gt;a pleasure.&lt;/span&gt;">
+        Le voyage devient <span>un plaisir.</span>
+      </h2>
+
+      <p data-fr="Chez MALO VTC, nous pensons que chaque déplacement mérite une attention particulière. Notre approche privilégie votre confort, votre tranquillité et une expérience de transport personnalisée."
+         data-en="At MALO VTC, we believe every journey deserves special attention. Our approach prioritises your comfort, peace of mind and a personalised transport experience.">
+        Chez MALO VTC, nous pensons que chaque déplacement
+        mérite une attention particulière.
+        Notre approche privilégie votre confort,
+        votre tranquillité et une expérience
+        de transport personnalisée.
+      </p>
+
+      <div class="experience-features">
+
+        <div class="experience-feature">
+          <strong data-fr="Service personnalisé"
+                  data-en="Personalised Service">
+            Service personnalisé
+          </strong>
+          <span data-fr="Un trajet adapté à vos besoins."
+                data-en="A journey tailored to your needs.">
+            Un trajet adapté à vos besoins.
+          </span>
+        </div>
+
+        <div class="experience-feature">
+          <strong data-fr="Confort"
+                  data-en="Comfort">
+            Confort
+          </strong>
+          <span data-fr="Voyagez dans une atmosphère agréable."
+                data-en="Travel in a pleasant atmosphere.">
+            Voyagez dans une atmosphère agréable.
+          </span>
+        </div>
+
+        <div class="experience-feature">
+          <strong data-fr="Ponctualité"
+                  data-en="Punctuality">
+            Ponctualité
+          </strong>
+          <span data-fr="Une attention portée à vos horaires."
+                data-en="Careful attention to your schedule.">
+            Une attention portée à vos horaires.
+          </span>
+        </div>
+
+        <div class="experience-feature">
+          <strong data-fr="Discrétion"
+                  data-en="Discretion">
+            Discrétion
+          </strong>
+          <span data-fr="Votre tranquillité reste essentielle."
+                data-en="Your peace of mind remains essential.">
+            Votre tranquillité reste essentielle.
+          </span>
+        </div>
+
+      </div>
+
+      <a href="reservation.html"
+         class="btn btn-gold"
+         data-fr="Réserver mon trajet →"
+         data-en="Book My Journey →">
+        Réserver mon trajet →
+      </a>
+
+    </div>
+  </div>
+</section>
