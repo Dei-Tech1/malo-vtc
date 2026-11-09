@@ -494,3 +494,495 @@
 
       </div>
     </section>
+
+    <!-- =====================================
+     BLOCK 2 — PREMIUM HOMEPAGE SECTIONS
+===================================== -->
+
+<style>
+  .section {
+    padding: 110px 0;
+    position: relative;
+  }
+
+  .section-dark {
+    background: #081a2e;
+  }
+
+  .section-deep {
+    background: #061426;
+  }
+
+  .section-label {
+    display: block;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.18;
+    letter-spacing: -1px;
+    margin: 0 0 22px;
+  }
+
+  .section-title span {
+    color: var(--gold);
+  }
+
+  .section-description {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 650px;
+    line-height: 1.9;
+  }
+
+  .section-heading {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 65px;
+  }
+
+  .section-heading .section-description {
+    margin: 0 auto;
+  }
+
+  /* PREMIUM SERVICE CARDS */
+
+  .home-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .home-service-card {
+    position: relative;
+    padding: 42px 32px;
+    min-height: 295px;
+    background: linear-gradient(
+      145deg,
+      #142b43,
+      #09192b
+    );
+    border: 1px solid rgba(230,189,104,.18);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .35s, border-color .35s;
+  }
+
+  .home-service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+  }
+
+  .home-service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  .home-service-icon {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(230,189,104,.5);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 28px;
+  }
+
+  .home-service-card h3 {
+    font-size: 21px;
+    margin: 0 0 16px;
+  }
+
+  .home-service-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .home-service-card a {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* ABOUT SECTION */
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+    min-height: 540px;
+    border-radius: 18px;
+    background:
+      linear-gradient(
+        rgba(6,20,38,.1),
+        rgba(6,20,38,.45)
+      ),
+      url("assets/malo-about.jpg") center/cover;
+    border: 1px solid rgba(230,189,104,.25);
+  }
+
+  .about-image::after {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(230,189,104,.5);
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
+  .about-content p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 22px;
+  }
+
+  .about-signature {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    margin-top: 30px;
+  }
+
+  /* OUR COMMITMENTS */
+
+  .commitment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .commitment-card {
+    padding: 38px 25px;
+    text-align: center;
+    border: 1px solid rgba(230,189,104,.2);
+    background: rgba(255,255,255,.025);
+    border-radius: 14px;
+    transition: transform .3s;
+  }
+
+  .commitment-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .commitment-icon {
+    color: var(--gold);
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .commitment-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .commitment-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 950px) {
+    .home-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+      gap: 35px;
+    }
+
+    .commitment-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 650px) {
+    .section {
+      padding: 75px 0;
+    }
+
+    .home-services-grid,
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image {
+      min-height: 350px;
+    }
+
+    .commitment-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .commitment-card {
+      padding: 25px 15px;
+    }
+  }
+</style>
+
+<!-- OUR SIGNATURE SERVICES -->
+
+<section class="section section-dark" id="services">
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-label"
+        data-fr="NOS PRESTATIONS"
+        data-en="OUR SERVICES">
+        NOS PRESTATIONS
+      </span>
+
+      <h2 class="section-title"
+        data-fr="L'excellence à &lt;span&gt;chaque trajet.&lt;/span&gt;"
+        data-en="Excellence in &lt;span&gt;every journey.&lt;/span&gt;">
+        L'excellence à <span>chaque trajet.</span>
+      </h2>
+
+      <p class="section-description"
+        data-fr="Des prestations de transport privé pensées pour répondre à vos besoins avec élégance, simplicité et professionnalisme."
+        data-en="Private chauffeur services designed to meet your needs with elegance, simplicity and professionalism.">
+        Des prestations de transport privé pensées pour répondre à vos besoins avec élégance, simplicité et professionnalisme.
+      </p>
+
+    </div>
+
+    <div class="home-services-grid">
+
+      <article class="home-service-card">
+        <div class="home-service-icon">♛</div>
+
+        <h3 data-fr="Chauffeur privé"
+            data-en="Private Chauffeur">
+          Chauffeur privé
+        </h3>
+
+        <p data-fr="Un service de transport personnalisé pour vos déplacements privés et professionnels."
+           data-en="A personalised transport service for your private and professional journeys.">
+          Un service de transport personnalisé pour vos déplacements privés et professionnels.
+        </p>
+
+        <a href="services.html"
+           data-fr="Découvrir le service →"
+           data-en="Explore the service →">
+          Découvrir le service →
+        </a>
+      </article>
+
+      <article class="home-service-card">
+        <div class="home-service-icon">✈</div>
+
+        <h3 data-fr="Aéroports & Transferts"
+            data-en="Airports & Transfers">
+          Aéroports & Transferts
+        </h3>
+
+        <p data-fr="Organisez vos trajets vers les aéroports et les gares en toute tranquillité."
+           data-en="Arrange your journeys to airports and train stations with peace of mind.">
+          Organisez vos trajets vers les aéroports et les gares en toute tranquillité.
+        </p>
+
+        <a href="services.html"
+           data-fr="Découvrir le service →"
+           data-en="Explore the service →">
+          Découvrir le service →
+        </a>
+      </article>
+
+      <article class="home-service-card">
+        <div class="home-service-icon">◆</div>
+
+        <h3 data-fr="Voyages d'affaires"
+            data-en="Business Travel">
+          Voyages d'affaires
+        </h3>
+
+        <p data-fr="Des déplacements professionnels adaptés à votre emploi du temps."
+           data-en="Professional travel tailored to your schedule.">
+          Des déplacements professionnels adaptés à votre emploi du temps.
+        </p>
+
+        <a href="services.html"
+           data-fr="Découvrir le service →"
+           data-en="Explore the service →">
+          Découvrir le service →
+        </a>
+      </article>
+
+      <article class="home-service-card">
+        <div class="home-service-icon">✦</div>
+
+        <h3 data-fr="Tourisme & Spectacles"
+            data-en="Tourism & Shows">
+          Tourisme & Spectacles
+        </h3>
+
+        <p data-fr="Profitez de vos sorties et découvrez Paris selon vos envies."
+           data-en="Enjoy your outings and discover Paris at your own pace.">
+          Profitez de vos sorties et découvrez Paris selon vos envies.
+        </p>
+
+        <a href="services.html"
+           data-fr="Découvrir le service →"
+           data-en="Explore the service →">
+          Découvrir le service →
+        </a>
+      </article>
+
+      <article class="home-service-card">
+        <div class="home-service-icon">⌁</div>
+
+        <h3 data-fr="Courtes & Longues Distances"
+            data-en="Short & Long Distances">
+          Courtes & Longues Distances
+        </h3>
+
+        <p data-fr="Des solutions adaptées à vos trajets, quelle que soit leur durée."
+           data-en="Flexible solutions for journeys of different distances.">
+          Des solutions adaptées à vos trajets, quelle que soit leur durée.
+        </p>
+
+        <a href="services.html"
+           data-fr="Découvrir le service →"
+           data-en="Explore the service →">
+          Découvrir le service →
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT MALO VTC -->
+
+<section class="section section-deep" id="apropos">
+  <div class="container about-grid">
+
+    <div class="about-image"
+         role="img"
+         aria-label="Univers MALO VTC">
+    </div>
+
+    <div class="about-content">
+
+      <span class="section-label"
+        data-fr="À PROPOS DE MALO VTC"
+        data-en="ABOUT MALO VTC">
+        À PROPOS DE MALO VTC
+      </span>
+
+      <h2 class="section-title"
+        data-fr="Plus qu'un trajet. &lt;span&gt;Une expérience.&lt;/span&gt;"
+        data-en="More than a journey. &lt;span&gt;An experience.&lt;/span&gt;">
+        Plus qu'un trajet. <span>Une expérience.</span>
+      </h2>
+
+      <p data-fr="MALO VTC vous accompagne dans vos déplacements à Paris et en Île-de-France avec une approche centrée sur votre confort et votre tranquillité."
+         data-en="MALO VTC accompanies you on your journeys across Paris and Île-de-France with an approach focused on your comfort and peace of mind.">
+        MALO VTC vous accompagne dans vos déplacements à Paris et en Île-de-France avec une approche centrée sur votre confort et votre tranquillité.
+      </p>
+
+      <p data-fr="Notre ambition est de rendre chaque trajet agréable grâce à une attention particulière portée à vos besoins."
+         data-en="Our ambition is to make every journey enjoyable through thoughtful attention to your needs.">
+        Notre ambition est de rendre chaque trajet agréable grâce à une attention particulière portée à vos besoins.
+      </p>
+
+      <div class="about-signature">
+        MALO VTC • PARIS • ÎLE-DE-FRANCE
+      </div>
+
+      <a href="reservation.html"
+         class="btn btn-gold"
+         data-fr="Réserver votre trajet"
+         data-en="Book Your Journey">
+        Réserver votre trajet
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUR COMMITMENTS -->
+
+<section class="section section-dark" id="engagement">
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-label"
+        data-fr="NOS ENGAGEMENTS"
+        data-en="OUR COMMITMENTS">
+        NOS ENGAGEMENTS
+      </span>
+
+      <h2 class="section-title"
+        data-fr="Votre satisfaction, &lt;span&gt;notre priorité.&lt;/span&gt;"
+        data-en="Your satisfaction, &lt;span&gt;our priority.&lt;/span&gt;">
+        Votre satisfaction, <span>notre priorité.</span>
+      </h2>
+
+    </div>
+
+    <div class="commitment-grid">
+
+      <article class="commitment-card">
+        <div class="commitment-icon">✧</div>
+        <h3 data-fr="Confort" data-en="Comfort">Confort</h3>
+        <p data-fr="Un environnement agréable pour profiter pleinement de votre trajet."
+           data-en="A pleasant environment to enjoy your journey.">
+          Un environnement agréable pour profiter pleinement de votre trajet.
+        </p>
+      </article>
+
+      <article class="commitment-card">
+        <div class="commitment-icon">◷</div>
+        <h3 data-fr="Ponctualité" data-en="Punctuality">Ponctualité</h3>
+        <p data-fr="Une organisation attentive à vos horaires et à vos impératifs."
+           data-en="Thoughtful planning around your schedule and commitments.">
+          Une organisation attentive à vos horaires et à vos impératifs.
+        </p>
+      </article>
+
+      <article class="commitment-card">
+        <div class="commitment-icon">◇</div>
+        <h3 data-fr="Sécurité" data-en="Safety">Sécurité</h3>
+        <p data-fr="Une attention particulière portée à la sérénité de vos déplacements."
+           data-en="Special attention to your peace of mind while travelling.">
+          Une attention particulière portée à la sérénité de vos déplacements.
+        </p>
+      </article>
+
+      <article class="commitment-card">
+        <div class="commitment-icon">♢</div>
+        <h3 data-fr="Discrétion" data-en="Discretion">Discrétion</h3>
+        <p data-fr="Un accompagnement respectueux de votre tranquillité et de votre intimité."
+           data-en="Respectful service that values your privacy and comfort.">
+          Un accompagnement respectueux de votre tranquillité et de votre intimité.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
