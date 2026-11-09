@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#081726">
-  <meta name="description" content="MALO VTC — Chauffeur privé à Paris et en Île-de-France. Transferts et déplacements sur réservation.">
 
-  <title>MALO VTC | Chauffeur Privé Paris</title>
+  <meta name="description"
+    content="MALO VTC, votre chauffeur privé à Paris et en Île-de-France. Réservez votre trajet en toute simplicité.">
+
+  <title>MALO VTC | Chauffeur privé Paris & Île-de-France</title>
 
   <style>
     :root {
-      --navy: #081726;
-      --navy-light: #10283d;
-      --gold: #d7b878;
-      --white: #f8f5ee;
-      --muted: #b8c4cd;
+      --navy: #061426;
+      --navy-soft: #10263e;
+      --gold: #e6bd68;
+      --gold-light: #ffe19b;
+      --white: #ffffff;
+      --muted: #c8d0d9;
     }
 
     * {
@@ -30,6 +32,8 @@
       background: var(--navy);
       color: var(--white);
       font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -43,283 +47,313 @@
     }
 
     .container {
-      width: min(1160px, calc(100% - 40px));
+      width: min(1240px, 92%);
       margin: auto;
     }
 
-    header {
-      background: #081726f5;
-      border-bottom: 1px solid #ffffff28;
-      position: relative;
-      z-index: 10;
+    /* PREMIUM HEADER */
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: linear-gradient(
+        to bottom,
+        rgba(3, 12, 25, .96),
+        rgba(3, 12, 25, .55),
+        transparent
+      );
     }
 
-    .nav {
-      min-height: 82px;
+    .navbar {
+      min-height: 105px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 24px;
     }
 
     .brand {
-      font: bold 29px Georgia, serif;
-      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 108px;
+      height: 108px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links > a {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color .3s;
+    }
+
+    .nav-links > a:hover,
+    .nav-links > a.active {
+      color: var(--gold);
+    }
+
+    .nav-links > a.active::after {
+      content: "";
+      display: block;
+      height: 2px;
+      margin-top: 6px;
+      background: var(--gold);
+    }
+
+    /* LANGUAGE DROPDOWN */
+
+    .language {
+      position: relative;
+    }
+
+    .language-button {
+      background: rgba(5, 17, 32, .8);
+      border: 1px solid rgba(230, 189, 104, .65);
+      border-radius: 30px;
+      color: white;
+      padding: 9px 15px;
       white-space: nowrap;
     }
 
-    .brand span,
-    .gold {
-      color: var(--gold);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    nav a {
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    .lang,
-    .menu {
-      background: transparent;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 10px 13px;
-    }
-
-    .menu {
+    .language-menu {
       display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 165px;
+      padding: 8px;
+      background: #0b1d32;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.35);
     }
+
+    .language-menu.open {
+      display: block;
+    }
+
+    .language-menu button {
+      width: 100%;
+      padding: 11px;
+      border: 0;
+      border-radius: 6px;
+      color: white;
+      background: transparent;
+      text-align: left;
+    }
+
+    .language-menu button:hover {
+      background: rgba(230, 189, 104, .15);
+      color: var(--gold);
+    }
+
+    /* RESERVATION BUTTON */
+
+    .nav-booking {
+      border: 2px solid var(--gold);
+      border-radius: 35px;
+      padding: 12px 18px;
+      color: var(--gold) !important;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .3s, color .3s;
+    }
+
+    .nav-booking:hover {
+      background: var(--gold);
+      color: var(--navy) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 13px;
+      border-radius: 6px;
+      font-size: 23px;
+    }
+
+    /* CINEMATIC HERO */
 
     .hero {
-      min-height: 660px;
+      position: relative;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      position: relative;
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 90% 45%, #234866, transparent 45%),
-        linear-gradient(130deg, #081726, #0c2237);
+        linear-gradient(
+          90deg,
+          rgba(3, 14, 29, .96) 0%,
+          rgba(3, 14, 29, .78) 45%,
+          rgba(3, 14, 29, .25) 100%
+        ),
+        url("assets/malo-hero.jpg") center/cover no-repeat;
     }
 
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
-      width: 550px;
-      height: 800px;
-      border: 1px solid #d7b87855;
+      width: 850px;
+      height: 850px;
+      top: -380px;
+      left: -340px;
       border-radius: 50%;
-      right: -220px;
-      top: -160px;
-      transform: rotate(25deg);
+      border: 2px solid rgba(230, 189, 104, .35);
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
-      padding: 95px 0;
+      z-index: 2;
+      width: min(690px, 100%);
+      padding: 160px 0 130px;
     }
 
-    .eyebrow {
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 3px;
+    .hero-eyebrow {
+      color: var(--gold-light);
+      letter-spacing: 5px;
+      font-size: 13px;
+      font-weight: 700;
       text-transform: uppercase;
     }
 
     .hero h1 {
-      font: 400 clamp(46px, 7vw, 90px)/1.08 Georgia, serif;
-      max-width: 900px;
+      font-size: clamp(44px, 5.5vw, 78px);
+      line-height: 1.1;
+      letter-spacing: -2px;
       margin: 25px 0;
+      font-weight: 800;
     }
 
-    .hero p {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #d5dfe6;
-      max-width: 610px;
+    .hero h1 span {
+      color: var(--gold);
     }
 
-    .buttons {
+    .hero-tagline {
+      font-size: clamp(15px, 1.8vw, 20px);
+      color: #e1e5e9;
+      margin: 28px 0;
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
+      gap: 17px;
+      margin-top: 35px;
     }
 
     .btn {
-      display: inline-block;
-      border: 1px solid var(--gold);
-      padding: 16px 24px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .btn.primary {
-      background: var(--gold);
-      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 26px;
+      border-radius: 9px;
+      font-weight: 800;
+      transition: transform .3s, background .3s;
     }
 
     .btn:hover {
-      filter: brightness(1.1);
+      transform: translateY(-4px);
     }
 
-    section.content {
-      padding: 90px 0;
+    .btn-gold {
+      background: linear-gradient(
+        135deg,
+        #ffe19b,
+        #dca93e
+      );
+      color: #061426;
     }
 
-    .services {
-      background: #0c1d2e;
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: white;
+      background: rgba(5, 15, 30, .55);
     }
 
-    .section-label {
-      color: var(--gold);
-      letter-spacing: 3px;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
+    /* MOBILE NAVIGATION */
 
-    h2 {
-      font: 400 clamp(34px, 5vw, 58px) Georgia, serif;
-      margin: 18px 0;
-    }
-
-    .lead {
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 700px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 40px;
-    }
-
-    .card {
-      padding: 32px;
-      border: 1px solid #d7b87842;
-      background: linear-gradient(140deg, #142c40, #091a2a);
-      min-height: 205px;
-    }
-
-    .card .number {
-      color: var(--gold);
-      font: 26px Georgia, serif;
-    }
-
-    .card h3 {
-      font: 24px Georgia, serif;
-      margin: 27px 0 12px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .panel {
-      border: 1px solid #d7b87877;
-      padding: 44px;
-      background: linear-gradient(140deg, #15334c, #081726);
-    }
-
-    .panel strong {
-      font: 46px Georgia, serif;
-      color: var(--gold);
-    }
-
-    .panel p {
-      line-height: 1.8;
-      color: var(--muted);
-    }
-
-    .cta {
-      text-align: center;
-      background: linear-gradient(130deg, #102f49, #081726);
-    }
-
-    .cta .lead {
-      margin: 0 auto 30px;
-    }
-
-    footer {
-      padding: 35px 0;
-      border-top: 1px solid #ffffff22;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        min-height: 72px;
+    @media (max-width: 1100px) {
+      .navbar {
+        min-height: 88px;
       }
 
-      .brand {
-        font-size: 24px;
+      .brand img {
+        width: 82px;
+        height: 82px;
       }
 
-      .menu {
+      .menu-toggle {
         display: block;
       }
 
-      nav {
+      .nav-links {
         display: none;
         position: absolute;
-        top: 72px;
+        top: 88px;
         left: 0;
         right: 0;
-        background: #081726;
-        padding: 24px;
+        background: rgba(6, 20, 38, .98);
+        padding: 25px 5%;
         flex-direction: column;
         align-items: stretch;
-        border-bottom: 1px solid #d7b87877;
+        gap: 18px;
+        border-bottom: 1px solid var(--gold);
       }
 
-      nav.open {
+      .nav-links.open {
         display: flex;
       }
 
-      .hero {
-        min-height: 600px;
+      .language-menu {
+        position: static;
+        margin-top: 10px;
       }
 
       .hero-content {
-        padding: 70px 0;
+        padding-top: 160px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 760px;
+        background-position: 60% center;
       }
 
-      .cards,
-      .about {
-        grid-template-columns: 1fr;
+      .hero-content {
+        padding-top: 145px;
+        padding-bottom: 90px;
       }
 
-      section.content {
-        padding: 65px 0;
+      .hero-eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   </style>
@@ -327,361 +361,136 @@
 
 <body>
 
-<header>
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      MALO <span>VTC</span>
-    </a>
+  <!-- PREMIUM NAVIGATION -->
 
-    <button class="menu" id="menu"
-      aria-controls="navigation"
-      aria-expanded="false">
-      ☰ Menu
-    </button>
+  <header class="site-header">
+    <div class="container navbar">
 
-    <nav id="navigation">
-      <a href="#accueil" data-fr="Accueil" data-en="Home">Accueil</a>
-      <a href="#services" data-fr="Nos services" data-en="Our services">Nos services</a>
-      <a href="#engagement" data-fr="Notre engagement" data-en="Our commitment">Notre engagement</a>
-      <a href="reservation.html" data-fr="Réservation" data-en="Booking">Réservation</a>
-      <button class="lang" id="lang" aria-label="Changer de langue">EN</button>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<section class="hero" id="accueil">
-  <div class="container hero-content">
-
-    <div class="eyebrow"
-      data-fr="CHAUFFEUR PRIVÉ · PARIS / ÎLE-DE-FRANCE"
-      data-en="PRIVATE CHAUFFEUR · PARIS / ÎLE-DE-FRANCE">
-      CHAUFFEUR PRIVÉ · PARIS / ÎLE-DE-FRANCE
-    </div>
-
-    <h1
-      data-fr="Chaque trajet mérite <span class='gold'>l’excellence.</span>"
-      data-en="Every journey deserves <span class='gold'>excellence.</span>">
-      Chaque trajet mérite <span class="gold">l’excellence.</span>
-    </h1>
-
-    <p
-      data-fr="Transferts, déplacements professionnels et voyages privés. Une expérience de transport pensée autour de votre confort."
-      data-en="Transfers, business trips and private journeys. A travel experience designed around your comfort.">
-      Transferts, déplacements professionnels et voyages privés.
-      Une expérience de transport pensée autour de votre confort.
-    </p>
-
-    <div class="buttons">
-      <a class="btn primary" href="reservation.html"
-        data-fr="Demander une réservation"
-        data-en="Request a booking">
-        Demander une réservation
+      <a href="index.html" class="brand"
+         aria-label="MALO VTC - Accueil">
+        <img src="assets/malo-logo.png"
+             alt="MALO VTC - Chauffeur privé">
       </a>
 
-      <a class="btn" href="#services"
-        data-fr="Découvrir nos services"
-        data-en="Explore our services">
-        Découvrir nos services
-      </a>
+      <button class="menu-toggle"
+              id="menuToggle"
+              type="button"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="navLinks">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks"
+           aria-label="Navigation principale">
+
+        <a href="index.html" class="active"
+           data-fr="Accueil"
+           data-en="Home">
+          Accueil
+        </a>
+
+        <a href="services.html"
+           data-fr="Nos Services"
+           data-en="Our Services">
+          Nos Services
+        </a>
+
+        <a href="index.html#apropos"
+           data-fr="À propos"
+           data-en="About Us">
+          À propos
+        </a>
+
+        <a href="services.html#tarifs"
+           data-fr="Tarifs"
+           data-en="Pricing">
+          Tarifs
+        </a>
+
+        <a href="reservation.html"
+           data-fr="Contact"
+           data-en="Contact">
+          Contact
+        </a>
+
+        <div class="language">
+          <button class="language-button"
+                  id="languageButton"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="languageMenu">
+            🇫🇷 FR ▾
+          </button>
+
+          <div class="language-menu"
+               id="languageMenu">
+            <button type="button" data-lang="fr">
+              🇫🇷 Français
+            </button>
+
+            <button type="button" data-lang="en">
+              🇬🇧 English
+            </button>
+          </div>
+        </div>
+
+        <a href="reservation.html"
+           class="nav-booking"
+           data-fr="Réserver maintenant"
+           data-en="Book Now">
+          ◉ Réserver maintenant
+        </a>
+
+      </nav>
     </div>
+  </header>
 
-  </div>
-  </section>
-  
-<!-- MALO VTC — SERVICES -->
+  <!-- CINEMATIC HOMEPAGE HERO -->
 
-<section class="content services" id="services">
-  <div class="container">
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container">
 
-    <div class="section-label"
-      data-fr="DES PRESTATIONS SUR MESURE"
-      data-en="TAILORED SERVICES">
-      DES PRESTATIONS SUR MESURE
-    </div>
+        <div class="hero-content">
 
-    <h2
-      data-fr="Voyagez en toute <span class='gold'>sérénité.</span>"
-      data-en="Travel with <span class='gold'>peace of mind.</span>">
-      Voyagez en toute <span class="gold">sérénité.</span>
-    </h2>
+          <div class="hero-eyebrow"
+               data-fr="CHAUFFEUR VTC — PARIS / ÎLE-DE-FRANCE"
+               data-en="PRIVATE CHAUFFEUR — PARIS / ÎLE-DE-FRANCE">
+            CHAUFFEUR VTC — PARIS / ÎLE-DE-FRANCE
+          </div>
 
-    <p class="lead"
-      data-fr="Pour vos déplacements personnels ou professionnels à Paris et en Île-de-France."
-      data-en="For personal or business journeys in Paris and Île-de-France.">
-      Pour vos déplacements personnels ou professionnels
-      à Paris et en Île-de-France.
-    </p>
+          <h1
+            data-fr="Votre chauffeur privé<br>en &lt;span&gt;Île-de-France&lt;/span&gt;"
+            data-en="Your private chauffeur<br>in &lt;span&gt;Île-de-France&lt;/span&gt;">
+            Votre chauffeur privé<br>
+            en <span>Île-de-France</span>
+          </h1>
 
-    <div class="cards">
+          <p class="hero-tagline"
+             data-fr="Confort • Ponctualité • Sécurité • Discrétion"
+             data-en="Comfort • Punctuality • Safety • Discretion">
+            Confort • Ponctualité • Sécurité • Discrétion
+          </p>
 
-      <article class="card">
-        <span class="number">01</span>
-        <h3 data-fr="Chauffeur privé"
-            data-en="Private chauffeur">
-          Chauffeur privé
-        </h3>
-        <p data-fr="Vos déplacements quotidiens et vos rendez-vous, selon vos besoins."
-           data-en="Your everyday journeys and appointments, tailored to your needs.">
-          Vos déplacements quotidiens et vos rendez-vous,
-          selon vos besoins.
-        </p>
-      </article>
+          <div class="hero-actions">
 
-      <article class="card">
-        <span class="number">02</span>
-        <h3 data-fr="Aéroports & gares"
-            data-en="Airports & stations">
-          Aéroports & gares
-        </h3>
-        <p data-fr="Transferts vers ou depuis les aéroports et les gares, sur demande."
-           data-en="Transfers to or from airports and train stations, on request.">
-          Transferts vers ou depuis les aéroports
-          et les gares, sur demande.
-        </p>
-      </article>
+            <a href="reservation.html"
+               class="btn btn-gold"
+               data-fr="Réserver un trajet"
+               data-en="Book a Journey">
+              Réserver un trajet
+            </a>
 
-      <article class="card">
-        <span class="number">03</span>
-        <h3 data-fr="Voyages d'affaires"
-            data-en="Business travel">
-          Voyages d'affaires
-        </h3>
-        <p data-fr="Des trajets adaptés à vos déplacements et rendez-vous professionnels."
-           data-en="Journeys tailored to your business travel and appointments.">
-          Des trajets adaptés à vos déplacements
-          et rendez-vous professionnels.
-        </p>
-      </article>
+            <a href="services.html"
+               class="btn btn-outline"
+               data-fr="Notre service"
+               data-en="Our Services">
+              Notre service
+            </a>
 
-      <article class="card">
-        <span class="number">04</span>
-        <h3 data-fr="Tourisme & sorties"
-            data-en="Tourism & outings">
-          Tourisme & sorties
-        </h3>
-        <p data-fr="Profitez de vos sorties et découvertes sans vous soucier du trajet."
-           data-en="Enjoy your outings and discoveries without worrying about transport.">
-          Profitez de vos sorties et découvertes
-          sans vous soucier du trajet.
-        </p>
-      </article>
+          </div>
+        </div>
 
-      <article class="card">
-        <span class="number">05</span>
-        <h3 data-fr="Longues distances"
-            data-en="Long-distance journeys">
-          Longues distances
-        </h3>
-        <p data-fr="Des trajets vers votre destination, selon disponibilité."
-           data-en="Travel to your destination, subject to availability.">
-          Des trajets vers votre destination,
-          selon disponibilité.
-        </p>
-      </article>
-
-      <article class="card">
-        <span class="number">06</span>
-        <h3 data-fr="Service personnalisé"
-            data-en="Personalised service">
-          Service personnalisé
-        </h3>
-        <p data-fr="Communiquez votre itinéraire pour recevoir une réponse adaptée."
-           data-en="Share your itinerary to receive a tailored response.">
-          Communiquez votre itinéraire
-          pour recevoir une réponse adaptée.
-        </p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- MALO VTC — NOTRE ENGAGEMENT -->
-
-<section class="content" id="engagement">
-  <div class="container about">
-
-    <div>
-      <div class="section-label"
-        data-fr="NOTRE ENGAGEMENT"
-        data-en="OUR COMMITMENT">
-        NOTRE ENGAGEMENT
       </div>
-
-      <h2
-        data-fr="Le sens du <span class='gold'>service.</span>"
-        data-en="Service with <span class='gold'>care.</span>">
-        Le sens du <span class="gold">service.</span>
-      </h2>
-
-      <p class="lead"
-        data-fr="MALO VTC privilégie une relation simple et directe avec chaque client. Communiquez les détails de votre trajet pour recevoir une réponse personnalisée."
-        data-en="MALO VTC values simple, direct communication with every client. Share your journey details to receive a personalised response.">
-        MALO VTC privilégie une relation simple et directe
-        avec chaque client. Communiquez les détails de votre
-        trajet pour recevoir une réponse personnalisée.
-      </p>
-
-      <a href="reservation.html" class="btn"
-        data-fr="Nous contacter"
-        data-en="Contact us">
-        Nous contacter
-      </a>
-    </div>
-
-    <div class="panel">
-      <strong>MALO VTC</strong>
-
-      <p
-        data-fr="Paris · Île-de-France<br>Chauffeur privé · Transferts · Trajets sur demande"
-        data-en="Paris · Île-de-France<br>Private chauffeur · Transfers · Journeys on request">
-        Paris · Île-de-France
-        <br>
-        Chauffeur privé · Transferts · Trajets sur demande
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- MALO VTC — RESERVATION CALL TO ACTION -->
-
-<section class="content cta">
-  <div class="container">
-
-    <div class="section-label"
-      data-fr="VOTRE PROCHAIN TRAJET"
-      data-en="YOUR NEXT JOURNEY">
-      VOTRE PROCHAIN TRAJET
-    </div>
-
-    <h2
-      data-fr="Prêt à <span class='gold'>partir ?</span>"
-      data-en="Ready to <span class='gold'>go?</span>">
-      Prêt à <span class="gold">partir ?</span>
-    </h2>
-
-    <p class="lead"
-      data-fr="Envoyez votre demande avec la date, l'heure, le lieu de départ et votre destination. Toute réservation reste soumise à confirmation."
-      data-en="Send your request with the date, time, pickup location and destination. All bookings are subject to confirmation.">
-      Envoyez votre demande avec la date, l'heure,
-      le lieu de départ et votre destination.
-      Toute réservation reste soumise à confirmation.
-    </p>
-
-    <a href="reservation.html" class="btn primary"
-      data-fr="Demander une réservation"
-      data-en="Request a booking">
-      Demander une réservation
-    </a>
-
-  </div>
-</section>
-
-</main>
-
-
-<!-- MALO VTC — FOOTER -->
-
-<footer>
-  <div class="container footer-inner">
-
-    <span>
-      © <span id="year"></span>
-      MALO VTC · Paris / Île-de-France
-    </span>
-
-    <span
-      data-fr="Site conçu par GODZYA GROUP · We Build. You Grow."
-      data-en="Website by GODZYA GROUP · We Build. You Grow.">
-      Site conçu par GODZYA GROUP · We Build. You Grow.
-    </span>
-
-  </div>
-</footer>
-
-
-<!-- MALO VTC — JAVASCRIPT -->
-
-<script>
-  const menu = document.getElementById("menu");
-  const navigation = document.getElementById("navigation");
-  const langButton = document.getElementById("lang");
-
-  // Mobile navigation
-  menu.addEventListener("click", function () {
-    const isOpen = navigation.classList.toggle("open");
-
-    menu.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
-  });
-
-  navigation.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      navigation.classList.remove("open");
-      menu.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  // French / English language system
-  let currentLanguage = "fr";
-
-  try {
-    if (localStorage.getItem("maloLanguage") === "en") {
-      currentLanguage = "en";
-    }
-  } catch (error) {
-    // Default to French if storage is unavailable
-  }
-
-  function applyLanguage() {
-    document.documentElement.lang = currentLanguage;
-
-    document.querySelectorAll("[data-fr][data-en]")
-      .forEach(function (element) {
-
-        const translation = element.getAttribute(
-          "data-" + currentLanguage
-        );
-
-        if (translation !== null) {
-          element.innerHTML = translation;
-        }
-      });
-
-    langButton.textContent =
-      currentLanguage === "fr" ? "EN" : "FR";
-  }
-
-  langButton.addEventListener("click", function () {
-    currentLanguage =
-      currentLanguage === "fr" ? "en" : "fr";
-
-    try {
-      localStorage.setItem(
-        "maloLanguage",
-        currentLanguage
-      );
-    } catch (error) {
-      // Language switching still works without storage
-    }
-
-    applyLanguage();
-  });
-
-  // Copyright year
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-  applyLanguage();
-</script>
-
-</body>
-</html>
-
+    </section>
