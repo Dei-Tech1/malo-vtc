@@ -1597,3 +1597,617 @@
 
   </div>
 </section>
+
+    <!-- ==========================================
+     FINAL BLOCK — SERVICES PAGE
+========================================== -->
+
+<style>
+  /* FINAL RESERVATION CTA */
+
+  .services-final-cta {
+    position: relative;
+    padding: 120px 0;
+    text-align: center;
+    background:
+      linear-gradient(
+        rgba(3, 13, 27, .91),
+        rgba(3, 13, 27, .95)
+      ),
+      url("assets/malo-cta.jpg") center/cover no-repeat;
+    border-top: 1px solid rgba(230,189,104,.25);
+  }
+
+  .services-final-cta::before {
+    content: "";
+    position: absolute;
+    inset: 25px;
+    border: 1px solid rgba(230,189,104,.25);
+    pointer-events: none;
+  }
+
+  .services-final-content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: auto;
+  }
+
+  .services-final-content h2 {
+    font-size: clamp(35px, 4.5vw, 60px);
+    line-height: 1.2;
+    margin: 20px 0;
+  }
+
+  .services-final-content h2 span {
+    color: var(--gold);
+  }
+
+  .services-final-content p {
+    color: var(--muted);
+    font-size: 17px;
+    margin-bottom: 35px;
+  }
+
+  /* PREMIUM FOOTER */
+
+  .site-footer {
+    background: #030d1b;
+    border-top: 1px solid rgba(230,189,104,.3);
+    padding: 85px 0 25px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 65px;
+    margin-bottom: 70px;
+  }
+
+  .footer-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 18px;
+  }
+
+  .footer-brand p {
+    max-width: 340px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .footer-column h3 {
+    color: var(--gold);
+    font-size: 15px;
+    margin: 0 0 25px;
+    letter-spacing: 1px;
+  }
+
+  .footer-column a {
+    display: block;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+    transition: color .3s;
+  }
+
+  .footer-column a:hover {
+    color: var(--gold);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #aeb8c5;
+    font-size: 12px;
+  }
+
+  .footer-bottom strong {
+    color: var(--gold);
+  }
+
+  /* SCROLL REVEAL */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity .75s ease,
+      transform .75s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE FOOTER */
+
+  @media (max-width: 850px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .services-final-cta {
+      padding: 90px 0;
+    }
+
+    .services-final-cta::before {
+      inset: 12px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+
+    .site-footer {
+      padding-top: 60px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<!-- FINAL RESERVATION SECTION -->
+
+<section class="services-final-cta">
+  <div class="container services-final-content">
+
+    <span class="section-label"
+          data-fr="VOYAGEZ AVEC MALO VTC"
+          data-en="TRAVEL WITH MALO VTC">
+      VOYAGEZ AVEC MALO VTC
+    </span>
+
+    <h2
+      data-fr="Chaque trajet mérite &lt;span&gt;l'excellence.&lt;/span&gt;"
+      data-en="Every journey deserves &lt;span&gt;excellence.&lt;/span&gt;">
+      Chaque trajet mérite <span>l'excellence.</span>
+    </h2>
+
+    <p
+      data-fr="Confiez vos déplacements à MALO VTC et profitez d'un service de chauffeur privé pensé pour votre confort."
+      data-en="Choose MALO VTC for your journeys and enjoy a private chauffeur service designed around your comfort.">
+      Confiez vos déplacements à MALO VTC
+      et profitez d'un service de chauffeur privé
+      pensé pour votre confort.
+    </p>
+
+    <a href="reservation.html"
+       class="btn btn-gold"
+       data-fr="Réserver mon chauffeur →"
+       data-en="Book My Chauffeur →">
+      Réserver mon chauffeur →
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ==========================================
+     PREMIUM FOOTER
+========================================== -->
+
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- BRAND -->
+
+      <div class="footer-brand">
+
+        <a href="index.html"
+           aria-label="MALO VTC - Accueil">
+
+          <img src="assets/malo-logo.png"
+               alt="MALO VTC"
+               class="footer-logo">
+
+        </a>
+
+        <p
+          data-fr="Votre partenaire de confiance pour vos déplacements privés et professionnels à Paris et en Île-de-France."
+          data-en="Your trusted partner for private and professional journeys across Paris and Île-de-France.">
+          Votre partenaire de confiance pour vos déplacements
+          privés et professionnels à Paris et en Île-de-France.
+        </p>
+
+      </div>
+
+      <!-- NAVIGATION -->
+
+      <div class="footer-column">
+
+        <h3 data-fr="Navigation"
+            data-en="Navigation">
+          Navigation
+        </h3>
+
+        <a href="index.html"
+           data-fr="Accueil"
+           data-en="Home">
+          Accueil
+        </a>
+
+        <a href="services.html"
+           data-fr="Nos Services"
+           data-en="Our Services">
+          Nos Services
+        </a>
+
+        <a href="index.html#apropos"
+           data-fr="À propos"
+           data-en="About Us">
+          À propos
+        </a>
+
+        <a href="services.html#tarifs"
+           data-fr="Tarifs"
+           data-en="Pricing">
+          Tarifs
+        </a>
+
+        <a href="reservation.html"
+           data-fr="Contact"
+           data-en="Contact">
+          Contact
+        </a>
+
+      </div>
+
+      <!-- SERVICES -->
+
+      <div class="footer-column">
+
+        <h3 data-fr="Nos prestations"
+            data-en="Our Services">
+          Nos prestations
+        </h3>
+
+        <a href="services.html#prestations"
+           data-fr="Chauffeur privé"
+           data-en="Private Chauffeur">
+          Chauffeur privé
+        </a>
+
+        <a href="services.html#prestations"
+           data-fr="Transferts aéroports"
+           data-en="Airport Transfers">
+          Transferts aéroports
+        </a>
+
+        <a href="services.html#prestations"
+           data-fr="Voyages d'affaires"
+           data-en="Business Travel">
+          Voyages d'affaires
+        </a>
+
+        <a href="reservation.html"
+           data-fr="Demander un devis"
+           data-en="Request a Quote">
+          Demander un devis
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © <span id="currentYear"></span> MALO VTC.
+        <span data-fr="Tous droits réservés."
+              data-en="All rights reserved.">
+          Tous droits réservés.
+        </span>
+      </span>
+
+      <span>
+        <span data-fr="Conçu par"
+              data-en="Designed by">
+          Conçu par
+        </span>
+        <strong>GODZYA GROUP</strong>
+        — We Build. You Grow.
+      </span>
+
+    </div>
+
+  </div>
+</footer>
+
+<!-- ==========================================
+     SERVICES PAGE JAVASCRIPT
+========================================== -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ELEMENTS */
+
+  const menuToggle =
+    document.getElementById("menuToggle");
+
+  const navLinks =
+    document.getElementById("navLinks");
+
+  const languageButton =
+    document.getElementById("languageButton");
+
+  const languageMenu =
+    document.getElementById("languageMenu");
+
+  const languageOptions =
+    document.querySelectorAll("[data-lang]");
+
+  const translatableElements =
+    document.querySelectorAll("[data-fr][data-en]");
+
+  /* =====================================
+     MOBILE NAVIGATION
+  ===================================== */
+
+  function closeMobileMenu() {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  /* =====================================
+     LANGUAGE DROPDOWN
+  ===================================== */
+
+  function closeLanguageMenu() {
+    languageMenu.classList.remove("open");
+    languageButton.setAttribute("aria-expanded", "false");
+  }
+
+  languageButton.addEventListener("click", event => {
+    event.stopPropagation();
+
+    const isOpen =
+      languageMenu.classList.toggle("open");
+
+    languageButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+  });
+
+  /* =====================================
+     FRENCH / ENGLISH TRANSLATION
+  ===================================== */
+
+  function setLanguage(language) {
+    const selectedLanguage =
+      language === "en" ? "en" : "fr";
+
+    document.documentElement.lang = selectedLanguage;
+
+    translatableElements.forEach(element => {
+      const translation =
+        element.getAttribute(`data-${selectedLanguage}`);
+
+      if (translation !== null) {
+        element.innerHTML = translation;
+      }
+    });
+
+    languageButton.textContent =
+      selectedLanguage === "fr"
+        ? "🇫🇷 FR ▾"
+        : "🇬🇧 EN ▾";
+
+    try {
+      localStorage.setItem(
+        "maloLanguage",
+        selectedLanguage
+      );
+    } catch (error) {
+      /* Storage unavailable: translation still works */
+    }
+
+    closeLanguageMenu();
+  }
+
+  languageOptions.forEach(option => {
+    option.addEventListener("click", () => {
+      setLanguage(option.dataset.lang);
+    });
+  });
+
+  /* CLOSE MENUS WHEN CLICKING OUTSIDE */
+
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".language")) {
+      closeLanguageMenu();
+    }
+
+    if (
+      !event.target.closest(".navbar") &&
+      navLinks.classList.contains("open")
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeLanguageMenu();
+      closeMobileMenu();
+    }
+  });
+
+  /* RESTORE LANGUAGE */
+
+  let savedLanguage = "fr";
+
+  try {
+    savedLanguage =
+      localStorage.getItem("maloLanguage") || "fr";
+  } catch (error) {
+    savedLanguage = "fr";
+  }
+
+  setLanguage(savedLanguage);
+
+  /* =====================================
+     INTERACTIVE PHOTO GALLERY
+  ===================================== */
+
+  const galleryItems =
+    document.querySelectorAll(".gallery-item");
+
+  const lightbox =
+    document.getElementById("galleryLightbox");
+
+  const lightboxImage =
+    document.getElementById("lightboxImage");
+
+  const lightboxCaption =
+    document.getElementById("lightboxCaption");
+
+  const lightboxClose =
+    document.getElementById("lightboxClose");
+
+  let previousFocus = null;
+
+  function openLightbox(item) {
+    const image = item.querySelector("img");
+    const caption = item.querySelector(".gallery-caption");
+
+    if (!image) return;
+
+    previousFocus = document.activeElement;
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightboxCaption.textContent =
+      caption ? caption.textContent.trim() : "";
+
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = "";
+    lightboxImage.removeAttribute("src");
+
+    if (previousFocus) {
+      previousFocus.focus();
+    }
+  }
+
+  galleryItems.forEach(item => {
+    item.addEventListener("click", () => {
+      openLightbox(item);
+    });
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (!lightbox.classList.contains("open")) return;
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (event.key === "Tab") {
+      event.preventDefault();
+      lightboxClose.focus();
+    }
+  });
+
+  /* =====================================
+     FOOTER YEAR
+  ===================================== */
+
+  document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+  /* =====================================
+     SCROLL REVEAL
+  ===================================== */
+
+  const revealTargets =
+    document.querySelectorAll(
+      ".premium-service-card, .experience-content, " +
+      ".gallery-item, .pricing-panel, .booking-step"
+    );
+
+  if (
+    "IntersectionObserver" in window &&
+    !window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+  ) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    revealTargets.forEach(element => {
+      element.classList.add("reveal");
+      observer.observe(element);
+    });
+  }
+
+});
+</script>
+
+</body>
+</html>
