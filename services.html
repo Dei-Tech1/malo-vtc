@@ -242,4 +242,233 @@
         </div>
       </div>
             </section>
-            
+
+    
+<!-- BLOCK 2: PREMIUM SERVICES -->
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    position: relative;
+    min-height: 390px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--navy-light);
+    border: 1px solid rgba(215,184,120,.18);
+  }
+
+  .service-card img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+  }
+
+  .service-card:hover img {
+    transform: scale(1.07);
+  }
+
+  .service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(8,23,38,.98) 0%,
+      rgba(8,23,38,.75) 40%,
+      rgba(8,23,38,.08) 100%
+    );
+  }
+
+  .service-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+  }
+
+  .service-number {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+
+  .service-content h3 {
+    font-size: 23px;
+    margin: 12px 0;
+  }
+
+  .service-content p {
+    color: #d0d5da;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .service-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+  }
+
+  @media (max-width: 950px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .service-card {
+      min-height: 360px;
+    }
+  }
+</style>
+
+<section class="section" id="prestations">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow"
+        data-fr="NOS PRESTATIONS"
+        data-en="OUR SERVICES">NOS PRESTATIONS</div>
+
+      <h2
+        data-fr="Chaque trajet, &lt;span&gt;une attention particulière.&lt;/span&gt;"
+        data-en="Every journey, &lt;span&gt;personal attention.&lt;/span&gt;">
+        Chaque trajet, <span>une attention particulière.</span>
+      </h2>
+
+      <p
+        data-fr="Des solutions de transport privé adaptées à vos besoins et à vos envies."
+        data-en="Private transport solutions tailored to your needs and preferences.">
+        Des solutions de transport privé adaptées à vos besoins et à vos envies.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card">
+        <img src="assets/airport-transfer.jpg"
+          alt="Transfert aéroport privé" loading="lazy">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-number">01 / MALO VTC</div>
+          <h3 data-fr="Aéroports & Gares"
+              data-en="Airports & Stations">Aéroports & Gares</h3>
+          <p data-fr="Organisez vos transferts depuis ou vers les aéroports et les gares."
+             data-en="Arrange transfers to and from airports and train stations.">
+            Organisez vos transferts depuis ou vers les aéroports et les gares.
+          </p>
+          <a class="service-link" href="reservation.html"
+             data-fr="Demander un trajet"
+             data-en="Request a journey">Demander un trajet</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="assets/business-travel.jpg"
+          alt="Déplacement professionnel" loading="lazy">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-number">02 / MALO VTC</div>
+          <h3 data-fr="Voyages d'affaires"
+              data-en="Business Travel">Voyages d'affaires</h3>
+          <p data-fr="Des déplacements adaptés à vos rendez-vous et obligations professionnelles."
+             data-en="Travel tailored to your meetings and professional commitments.">
+            Des déplacements adaptés à vos rendez-vous et obligations professionnelles.
+          </p>
+          <a class="service-link" href="reservation.html"
+             data-fr="Demander un trajet"
+             data-en="Request a journey">Demander un trajet</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="assets/private-chauffeur.jpg"
+          alt="Chauffeur privé" loading="lazy">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-number">03 / MALO VTC</div>
+          <h3 data-fr="Chauffeur privé"
+              data-en="Private Chauffeur">Chauffeur privé</h3>
+          <p data-fr="Une solution personnalisée pour vos déplacements du quotidien."
+             data-en="A personalised solution for your everyday journeys.">
+            Une solution personnalisée pour vos déplacements du quotidien.
+          </p>
+          <a class="service-link" href="reservation.html"
+             data-fr="Demander un trajet"
+             data-en="Request a journey">Demander un trajet</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="assets/events.jpg"
+          alt="Transport pour événements" loading="lazy">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-number">04 / MALO VTC</div>
+          <h3 data-fr="Événements & Soirées"
+              data-en="Events & Evenings">Événements & Soirées</h3>
+          <p data-fr="Préparez vos sorties et occasions spéciales avec sérénité."
+             data-en="Plan your outings and special occasions with peace of mind.">
+            Préparez vos sorties et occasions spéciales avec sérénité.
+          </p>
+          <a class="service-link" href="reservation.html"
+             data-fr="Demander un trajet"
+             data-en="Request a journey">Demander un trajet</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="assets/paris-tour.jpg"
+          alt="Découverte de Paris" loading="lazy">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-number">05 / MALO VTC</div>
+          <h3 data-fr="Découverte de Paris"
+              data-en="Discover Paris">Découverte de Paris</h3>
+          <p data-fr="Découvrez la capitale et ses environs selon votre programme."
+             data-en="Explore the capital and surrounding areas at your own pace.">
+            Découvrez la capitale et ses environs selon votre programme.
+          </p>
+          <a class="service-link" href="reservation.html"
+             data-fr="Demander un trajet"
+             data-en="Request a journey">Demander un trajet</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="assets/long-distance.jpg"
+          alt="Trajet longue distance" loading="lazy">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <div class="service-number">06 / MALO VTC</div>
+          <h3 data-fr="Longue Distance"
+              data-en="Long-Distance Travel">Longue Distance</h3>
+          <p data-fr="Demandez un trajet personnalisé au-delà de Paris et de sa région."
+             data-en="Request a tailored journey beyond Paris and its region.">
+            Demandez un trajet personnalisé au-delà de Paris et de sa région.
+          </p>
+          <a class="service-link" href="reservation.html"
+             data-fr="Demander un trajet"
+             data-en="Request a journey">Demander un trajet</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+    
