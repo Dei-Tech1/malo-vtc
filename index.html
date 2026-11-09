@@ -220,27 +220,67 @@
     /* CINEMATIC HERO */
 
     .hero {
+  po.hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: #030e1d;
+}
 
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(3, 14, 29, .88) 0%,
-      rgba(3, 14, 29, .65) 45%,
-      rgba(3, 14, 29, .25) 100%
-    ),
-    url("paris-hero-1.jpg.jpg");
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 14, 29, .88) 0%,
+    rgba(3, 14, 29, .65) 45%,
+    rgba(3, 14, 29, .25) 100%
+  );
+  pointer-events: none;
+}
 
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  animation: maloParisSlideshow 21s infinite;
+  opacity: 0;
+  animation: maloCrossfade 21s infinite;
 }
+
+.hero-slide:nth-child(1) {
+  background-image: url("paris-hero-1.jpg.jpg");
+  animation-delay: -1.5s;
+}
+
+.hero-slide:nth-child(2) {
+  background-image: url("paris-hero-2.jpg.jpg");
+  animation-delay: 5.5s;
+}
+
+.hero-slide:nth-child(3) {
+  background-image: url("paris-hero-3.jpg.jpg");
+  animation-delay: 12.5s;
+}
+
+@keyframes maloCrossfade {
+  0% { opacity: 0; transform: scale(1.06); }
+  7.14% { opacity: 1; }
+  33.33% { opacity: 1; }
+  40.47% { opacity: 0; }
+  100% { opacity: 0; transform: scale(1.14); }
+  }
 
 @keyframes maloParisSlideshow {
   0%, 28% {
