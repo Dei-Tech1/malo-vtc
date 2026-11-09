@@ -220,20 +220,53 @@
     /* CINEMATIC HERO */
 
     .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(3, 14, 29, .96) 0%,
-          rgba(3, 14, 29, .78) 45%,
-          rgba(3, 14, 29, .25) 100%
-        ),
-        url("assets/malo-hero.jpg") center/cover no-repeat;
-    }
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 14, 29, .88) 0%,
+      rgba(3, 14, 29, .65) 45%,
+      rgba(3, 14, 29, .25) 100%
+    ),
+    url("paris-hero-1.jpg.jpg");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  animation: maloParisSlideshow 21s infinite;
+}
+
+@keyframes maloParisSlideshow {
+  0%, 28% {
+    background-image:
+      linear-gradient(90deg, rgba(3,14,29,.88), rgba(3,14,29,.25)),
+      url("paris-hero-1.jpg.jpg");
+  }
+
+  33%, 61% {
+    background-image:
+      linear-gradient(90deg, rgba(3,14,29,.88), rgba(3,14,29,.25)),
+      url("paris-hero-2.jpg.jpg");
+  }
+
+  66%, 95% {
+    background-image:
+      linear-gradient(90deg, rgba(3,14,29,.88), rgba(3,14,29,.25)),
+      url("paris-hero-3.jpg.jpg");
+  }
+
+  100% {
+    background-image:
+      linear-gradient(90deg, rgba(3,14,29,.88), rgba(3,14,29,.25)),
+      url("paris-hero-1.jpg.jpg");
+  }
+}
 
     .hero::before {
       content: "";
