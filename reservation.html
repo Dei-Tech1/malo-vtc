@@ -1,26 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color" content="#081726">
-
-  <meta name="description"
-        content="Demandez votre réservation MALO VTC à Paris et en Île-de-France.">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071525">
+  <meta name="description" content="Demandez votre réservation MALO VTC à Paris et en Île-de-France. Chauffeur privé, transferts aéroports et déplacements professionnels.">
   <title>Réservation & Contact | MALO VTC</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #081726;
-      --navy-light: #10283d;
-      --gold: #d7b878;
-      --white: #f8f5ee;
-      --muted: #b8c4cd;
+      --navy: #071525;
+      --navy-soft: #10243a;
+      --navy-deep: #030b15;
+      --gold: #d9b46e;
+      --gold-light: #f0d49c;
+      --white: #ffffff;
+      --muted: #b8c3d0;
+      --line: rgba(217,180,110,.25);
+      --font: "DM Sans", Arial, sans-serif;
+      --display: "Playfair Display", Georgia, serif;
     }
 
     * {
@@ -35,7 +37,12 @@
       margin: 0;
       background: var(--navy);
       color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--font);
+      line-height: 1.6;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     a {
@@ -45,8 +52,8 @@
 
     button,
     input,
-    select,
-    textarea {
+    textarea,
+    select {
       font: inherit;
     }
 
@@ -54,313 +61,620 @@
       cursor: pointer;
     }
 
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
     .container {
-      width: min(1160px, calc(100% - 40px));
-      margin: auto;
+      width: min(1200px, calc(100% - 44px));
+      margin-inline: auto;
     }
 
-    header {
-      background: #081726;
-      border-bottom: 1px solid #ffffff28;
-      position: relative;
-      z-index: 10;
-    }
-
-    .nav {
-      min-height: 82px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .brand {
-      font: bold 29px Georgia, serif;
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-
-    .brand span,
     .gold {
       color: var(--gold);
     }
 
-    nav {
+    /* HEADER */
+
+    .site-header {
+      position: relative;
+      z-index: 100;
+      background: rgba(3,11,21,.97);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 92px;
       display: flex;
       align-items: center;
-      gap: 28px;
+      justify-content: space-between;
+      gap: 22px;
     }
 
-    nav a {
-      font-size: 14px;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
-    nav a:hover {
+    .brand img {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: var(--display);
+      font-size: 23px;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links > a {
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .25s;
+    }
+
+    .nav-links > a:hover,
+    .nav-links > a.active {
       color: var(--gold);
     }
 
-    .lang,
-    .menu {
+    .nav-cta {
+      padding: 12px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+
+    .language-switcher {
+      position: relative;
+    }
+
+    .language-button {
+      padding: 9px 12px;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: white;
+      font-size: 13px;
+    }
+
+    .language-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 145px;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #10243a;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+
+    .language-menu.open {
+      display: block;
+    }
+
+    .language-menu button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      color: white;
+      text-align: left;
+    }
+
+    .language-menu button:hover {
+      background: rgba(217,180,110,.15);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
       background: transparent;
       color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 10px 13px;
-      cursor: pointer;
+      font-size: 24px;
     }
 
-    .menu {
-      display: none;
-    }
+    /* HERO */
 
-    .page-hero {
-      padding: 95px 0 80px;
+    .reservation-hero {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      text-align: center;
       background:
-        radial-gradient(
-          ellipse at 85% 40%,
-          #234866,
-          transparent 48%
-        ),
         linear-gradient(
-          130deg,
-          #081726,
-          #0c2237
-        );
-      border-bottom: 1px solid #d7b87835;
+          rgba(3,11,21,.72),
+          rgba(3,11,21,.94)
+        ),
+        url("assets/malo-reservation-hero.jpg")
+        center/cover no-repeat;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .reservation-hero-content {
+      padding: 95px 0;
     }
 
     .eyebrow {
+      display: inline-block;
       color: var(--gold);
       font-size: 12px;
+      font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    h1 {
-      font: 400 clamp(44px, 7vw, 78px)/1.1 Georgia, serif;
-      max-width: 850px;
-      margin: 22px 0;
+    h1,
+    h2,
+    h3 {
+      font-family: var(--display);
+      line-height: 1.2;
     }
 
-    .lead {
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 700px;
+    .reservation-hero h1 {
+      max-width: 900px;
+      margin: 20px auto;
+      font-size: clamp(40px, 5.5vw, 72px);
+    }
+
+    .reservation-hero p {
+      max-width: 690px;
+      margin: 0 auto;
+      color: #d5dde6;
       font-size: 17px;
     }
 
-    .booking-section {
-      padding: 85px 0;
+    /* MAIN */
+
+    .reservation-section {
+      padding: 105px 0;
+      background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(217,180,110,.07),
+          transparent 32%
+        ),
+        var(--navy);
     }
 
-    .booking-layout {
+    .reservation-layout {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 35px;
+      grid-template-columns: minmax(0, 1.55fr) minmax(290px, .85fr);
       align-items: start;
+      gap: 38px;
     }
 
-    .booking-card {
+    .form-panel,
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
       background: linear-gradient(
         145deg,
-        #142c40,
-        #0b1d2e
+        #122840,
+        #081827
       );
-      border: 1px solid #d7b87855;
-      padding: 38px;
+      box-shadow: 0 25px 65px rgba(0,0,0,.17);
     }
 
-    .section-label {
-      color: var(--gold);
-      letter-spacing: 3px;
-      font-size: 12px;
-      text-transform: uppercase;
+    .form-panel {
+      padding: 46px;
     }
 
-    h2 {
-      font: 400 clamp(30px, 4vw, 46px) Georgia, serif;
-      margin: 18px 0 26px;
+    .section-heading {
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin: 12px 0 15px;
+      font-size: clamp(30px, 3.3vw, 44px);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .form-group-title {
+      margin: 34px 0 20px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+      color: var(--gold-light);
+      font-size: 16px;
+      font-weight: 700;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
     }
 
-    .field {
+    .form-field {
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
     }
 
-    .field.full {
+    .form-field.full {
       grid-column: 1 / -1;
     }
 
-    label {
+    .form-field label {
       font-size: 13px;
-      color: #e8e2d6;
+      font-weight: 600;
+      color: #e4eaf1;
     }
 
-    input,
-    select,
-    textarea {
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
       width: 100%;
-      padding: 15px;
-      border: 1px solid #ffffff35;
-      border-radius: 0;
-      background: #071624;
-      color: var(--white);
+      min-width: 0;
+      padding: 14px 15px;
+      border: 1px solid rgba(217,180,110,.24);
+      border-radius: 6px;
+      background: #071525;
+      color: white;
+      transition: border-color .25s;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--gold);
       outline: none;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--gold);
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: #91a0b0;
     }
 
-    textarea {
+    .form-field textarea {
       min-height: 120px;
       resize: vertical;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--gold);
-      padding: 16px 24px;
-      background: transparent;
-      color: var(--white);
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .btn.primary {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    .btn:hover {
-      filter: brightness(1.1);
-    }
-
-    .submit-btn {
-      width: 100%;
-      margin-top: 24px;
+    .required {
+      color: var(--gold);
     }
 
     .form-note {
-      font-size: 13px;
+      margin: 22px 0;
       color: var(--muted);
-      line-height: 1.7;
-      margin-top: 18px;
-    }
-
-    .contact-panel {
-      padding: 35px;
-      border: 1px solid #d7b87855;
-      background: #10283d;
-    }
-
-    .contact-panel h3 {
-      font: 30px Georgia, serif;
-      margin: 18px 0;
-    }
-
-    .contact-panel p {
-      color: var(--muted);
+      font-size: 12px;
       line-height: 1.8;
+    }
+
+    .submit-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 56px;
+      padding: 16px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 5px;
+      background: linear-gradient(
+        135deg,
+        #c59a52,
+        #f0d49c
+      );
+      color: #081525;
+      font-weight: 800;
+      letter-spacing: .3px;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(217,180,110,.2);
+    }
+
+    /* CONTACT SIDEBAR */
+
+    .contact-sidebar {
+      display: grid;
+      gap: 25px;
+    }
+
+    .contact-card {
+      padding: 35px;
+    }
+
+    .contact-card h3 {
+      margin: 12px 0 20px;
+      font-size: 27px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
       font-size: 14px;
+      line-height: 1.9;
     }
 
     .contact-item {
-      border-top: 1px solid #ffffff25;
-      padding: 22px 0;
+      padding: 19px 0;
+      border-top: 1px solid var(--line);
     }
 
-    .contact-item strong {
+    .contact-label {
       display: block;
+      margin-bottom: 6px;
       color: var(--gold);
-      margin-bottom: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
     .contact-item a {
+      font-size: 15px;
       overflow-wrap: anywhere;
+      transition: color .25s;
     }
 
     .contact-item a:hover {
       color: var(--gold);
     }
 
-    footer {
-      padding: 35px 0;
-      border-top: 1px solid #ffffff22;
+    .promise-list {
+      display: grid;
+      gap: 17px;
+      margin-top: 22px;
+    }
+
+    .promise {
+      display: flex;
+      gap: 12px;
+      color: #e0e7ee;
+      font-size: 14px;
+    }
+
+    .promise-mark {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    /* BOTTOM CTA */
+
+    .contact-bottom {
+      padding: 80px 0;
+      border-top: 1px solid var(--line);
+      background: var(--navy-deep);
+      text-align: center;
+    }
+
+    .contact-bottom h2 {
+      margin: 15px 0;
+      font-size: clamp(30px, 4vw, 48px);
+    }
+
+    .contact-bottom p {
+      max-width: 630px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+    }
+
+    .outline-button {
+      display: inline-block;
+      padding: 14px 26px;
+      border: 1px solid var(--gold);
+      border-radius: 5px;
+      color: var(--gold-light);
+      font-weight: 700;
+      transition: background .25s;
+    }
+
+    .outline-button:hover {
+      background: rgba(217,180,110,.1);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      padding: 70px 0 25px;
+      background: #020811;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 55px;
+      margin-bottom: 55px;
+    }
+
+    .footer-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .footer-brand p {
+      max-width: 350px;
       color: var(--muted);
       font-size: 13px;
     }
 
-    .footer-inner {
+    .footer-column h3 {
+      color: var(--gold);
+      font-family: var(--font);
+      font-size: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin: 12px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-column a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 15px;
       flex-wrap: wrap;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: #a5b2c1;
+      font-size: 12px;
     }
 
-    :focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 4px;
+    .footer-bottom strong {
+      color: var(--gold);
     }
 
-    @media (max-width: 760px) {
-      .nav {
-        min-height: 72px;
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 14px;
       }
 
-      .brand {
-        font-size: 24px;
+      .nav-links > a {
+        font-size: 12px;
       }
 
-      .menu {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: #081726;
-        padding: 24px;
-        flex-direction: column;
-        align-items: stretch;
-        border-bottom: 1px solid #d7b87877;
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      .page-hero {
-        padding: 70px 0;
-      }
-
-      .booking-layout,
-      .form-grid {
+      .reservation-layout {
         grid-template-columns: 1fr;
       }
 
-      .booking-section {
-        padding: 60px 0;
+      .contact-sidebar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 800px) {
+      .menu-toggle {
+        display: block;
       }
 
-      .booking-card,
-      .contact-panel {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         padding: 25px;
+        background: #071525;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 17px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links > a {
+        font-size: 15px;
+      }
+
+      .language-menu {
+        left: 0;
+        right: auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 30px, 1200px);
+      }
+
+      .nav-inner {
+        min-height: 76px;
+      }
+
+      .brand img {
+        width: 53px;
+        height: 53px;
+      }
+
+      .brand-name {
+        font-size: 19px;
+      }
+
+      .reservation-hero {
+        min-height: 340px;
+      }
+
+      .reservation-hero-content {
+        padding: 70px 0;
+      }
+
+      .reservation-section {
+        padding: 65px 0;
+      }
+
+      .form-panel {
+        padding: 26px 20px;
+      }
+
+      .form-grid,
+      .contact-sidebar,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-field.full {
+        grid-column: auto;
+      }
+
+      .contact-card {
+        padding: 28px;
+      }
+
+      .site-footer {
+        padding-top: 50px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
       }
     }
   </style>
@@ -368,450 +682,714 @@
 
 <body>
 
-<header>
-  <div class="container nav">
+  <!-- HEADER -->
 
-    <a class="brand" href="index.html">
-      MALO <span>VTC</span>
-    </a>
+  <header class="site-header">
+    <div class="container nav-inner">
 
-    <button class="menu"
-            id="menu"
-            aria-controls="navigation"
-            aria-expanded="false">
-      ☰ Menu
-    </button>
-
-    <nav id="navigation"
-         aria-label="Navigation principale">
-
-      <a href="index.html"
-         data-fr="Accueil"
-         data-en="Home">
-        Accueil
+      <a href="index.html" class="brand" aria-label="MALO VTC - Accueil">
+        <img src="assets/malo-logo.png" alt="Logo MALO VTC">
+        <span class="brand-name">MALO VTC</span>
       </a>
 
-      <a href="index.html#services"
-         data-fr="Nos services"
-         data-en="Our services">
-        Nos services
-      </a>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >☰</button>
 
-      <a href="index.html#engagement"
-         data-fr="Notre engagement"
-         data-en="Our commitment">
-        Notre engagement
-      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
 
-      <a href="reservation.html"
-         data-fr="Réservation"
-         data-en="Booking">
-        Réservation
-      </a>
+        <a href="index.html"
+           data-fr="Accueil"
+           data-en="Home">Accueil</a>
 
-      <button class="lang"
-              id="lang"
-              aria-label="Changer de langue">
-        EN
-      </button>
+        <a href="services.html"
+           data-fr="Nos Services"
+           data-en="Our Services">Nos Services</a>
 
-    </nav>
-  </div>
-</header>
+        <a href="index.html#apropos"
+           data-fr="À propos"
+           data-en="About Us">À propos</a>
 
-<main>
+        <a href="services.html#tarifs"
+           data-fr="Tarifs"
+           data-en="Pricing">Tarifs</a>
 
-<section class="page-hero">
-  <div class="container">
+        <a href="reservation.html"
+           class="active"
+           aria-current="page"
+           data-fr="Contact"
+           data-en="Contact">Contact</a>
 
-    <div class="eyebrow"
-         data-fr="MALO VTC · PARIS / ÎLE-DE-FRANCE"
-         data-en="MALO VTC · PARIS / ÎLE-DE-FRANCE">
-      MALO VTC · PARIS / ÎLE-DE-FRANCE
-    </div>
+        <div class="language-switcher" id="languageSwitcher">
+          <button
+            type="button"
+            class="language-button"
+            id="languageButton"
+            aria-expanded="false"
+            aria-controls="languageMenu"
+          >🇫🇷 FR ▾</button>
 
-    <h1
-      data-fr="Votre trajet, <span class='gold'>notre attention.</span>"
-      data-en="Your journey, <span class='gold'>our attention.</span>">
-      Votre trajet,
-      <span class="gold">notre attention.</span>
-    </h1>
-
-    <p class="lead"
-       data-fr="Communiquez les détails de votre déplacement. Nous vous répondrons pour confirmer la disponibilité et les modalités de votre réservation."
-       data-en="Share your journey details. We will respond to confirm availability and booking arrangements.">
-      Communiquez les détails de votre déplacement.
-      Nous vous répondrons pour confirmer la disponibilité
-      et les modalités de votre réservation.
-    </p>
-
-  </div>
-        </section>
-        
-
-<!-- MALO VTC — RESERVATION FORM -->
-
-<section class="booking-section" id="reservation">
-  <div class="container booking-layout">
-
-    <div class="booking-card">
-      <div class="section-label"
-           data-fr="DEMANDE DE RÉSERVATION"
-           data-en="BOOKING REQUEST">
-        DEMANDE DE RÉSERVATION
-      </div>
-
-      <h2 data-fr="Organisons votre <span class='gold'>trajet.</span>"
-          data-en="Plan your <span class='gold'>journey.</span>">
-        Organisons votre <span class="gold">trajet.</span>
-      </h2>
-
-      <form id="bookingForm">
-        <div class="form-grid">
-
-          <div class="field">
-            <label for="fullname"
-                   data-fr="Nom complet *"
-                   data-en="Full name *">Nom complet *</label>
-            <input type="text" id="fullname"
-                   name="fullname" autocomplete="name"
-                   required maxlength="100">
+          <div class="language-menu" id="languageMenu">
+            <button type="button" data-lang="fr">🇫🇷 Français</button>
+            <button type="button" data-lang="en">🇬🇧 English</button>
           </div>
-
-          <div class="field">
-            <label for="phone"
-                   data-fr="Téléphone *"
-                   data-en="Phone number *">Téléphone *</label>
-            <input type="tel" id="phone"
-                   name="phone" autocomplete="tel"
-                   required maxlength="30">
-          </div>
-
-          <div class="field full">
-            <label for="email"
-                   data-fr="Adresse e-mail (facultatif)"
-                   data-en="Email address (optional)">
-              Adresse e-mail (facultatif)
-            </label>
-            <input type="email" id="email"
-                   name="email" autocomplete="email"
-                   maxlength="150">
-          </div>
-
-          <div class="field full">
-            <label for="pickup"
-                   data-fr="Lieu de départ *"
-                   data-en="Pickup location *">
-              Lieu de départ *
-            </label>
-            <input type="text" id="pickup"
-                   name="pickup" required maxlength="250">
-          </div>
-
-          <div class="field full">
-            <label for="destination"
-                   data-fr="Destination *"
-                   data-en="Destination *">
-              Destination *
-            </label>
-            <input type="text" id="destination"
-                   name="destination" required maxlength="250">
-          </div>
-
-          <div class="field">
-            <label for="date"
-                   data-fr="Date du trajet *"
-                   data-en="Journey date *">
-              Date du trajet *
-            </label>
-            <input type="date" id="date"
-                   name="date" required>
-          </div>
-
-          <div class="field">
-            <label for="time"
-                   data-fr="Heure de départ *"
-                   data-en="Pickup time *">
-              Heure de départ *
-            </label>
-            <input type="time" id="time"
-                   name="time" required>
-          </div>
-
-          <div class="field">
-            <label for="passengers"
-                   data-fr="Nombre de passagers *"
-                   data-en="Number of passengers *">
-              Nombre de passagers *
-            </label>
-            <input type="number" id="passengers"
-                   name="passengers" min="1" max="8"
-                   value="1" required>
-          </div>
-
-          <div class="field">
-            <label for="journeyType"
-                   data-fr="Type de trajet *"
-                   data-en="Journey type *">
-              Type de trajet *
-            </label>
-            <select id="journeyType"
-                    name="journeyType" required>
-              <option value="oneway"
-                      data-fr="Aller simple"
-                      data-en="One-way">
-                Aller simple
-              </option>
-              <option value="return"
-                      data-fr="Aller-retour"
-                      data-en="Round trip">
-                Aller-retour
-              </option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label for="notes"
-                   data-fr="Informations complémentaires"
-                   data-en="Additional information">
-              Informations complémentaires
-            </label>
-            <textarea id="notes" name="notes"
-                      maxlength="1000"></textarea>
-          </div>
-
         </div>
 
-        <button type="submit"
-                class="btn primary submit-btn"
-                data-fr="Envoyer la demande via WhatsApp"
-                data-en="Send request via WhatsApp">
-          Envoyer la demande via WhatsApp
-        </button>
+        <a href="#reservation-form"
+           class="nav-cta"
+           data-fr="Réserver maintenant"
+           data-en="Book Now">Réserver maintenant</a>
 
-        <p class="form-note"
-           data-fr="Vous serez redirigé vers WhatsApp pour envoyer votre demande. Aucun trajet n'est confirmé avant la réponse de MALO VTC."
-           data-en="You will be redirected to WhatsApp to send your request. No journey is confirmed until MALO VTC responds.">
-          Vous serez redirigé vers WhatsApp pour envoyer
-          votre demande. Aucun trajet n'est confirmé
-          avant la réponse de MALO VTC.
-        </p>
-      </form>
+      </nav>
     </div>
+  </header>
 
-    <!-- CONTACT INFORMATION -->
+  <main>
 
-    <aside class="contact-panel">
-      <div class="section-label"
-           data-fr="CONTACT DIRECT"
-           data-en="DIRECT CONTACT">
-        CONTACT DIRECT
-      </div>
+    <!-- HERO -->
 
-      <h3 data-fr="Restons en contact."
-          data-en="Let's stay in touch.">
-        Restons en contact.
-      </h3>
+    <section class="reservation-hero">
+      <div class="container reservation-hero-content">
 
-      <p data-fr="Une question concernant votre trajet ? Contactez MALO VTC directement."
-         data-en="Have a question about your journey? Contact MALO VTC directly.">
-        Une question concernant votre trajet ?
-        Contactez MALO VTC directement.
-      </p>
+        <span class="eyebrow"
+              data-fr="MALO VTC · PARIS & ÎLE-DE-FRANCE"
+              data-en="MALO VTC · PARIS & ÎLE-DE-FRANCE">
+          MALO VTC · PARIS & ÎLE-DE-FRANCE
+        </span>
 
-      <div class="contact-item">
-        <strong data-fr="Téléphone"
-                data-en="Telephone">Téléphone</strong>
-        <a id="phoneLink" href="#">
-          Numéro en attente de confirmation
-        </a>
-      </div>
+        <h1
+          data-fr="Votre voyage commence &lt;span class='gold'&gt;ici.&lt;/span&gt;"
+          data-en="Your journey starts &lt;span class='gold'&gt;here.&lt;/span&gt;">
+          Votre voyage commence <span class="gold">ici.</span>
+        </h1>
 
-      <div class="contact-item">
-        <strong>WhatsApp</strong>
-        <p data-fr="Les demandes sont transmises par WhatsApp et confirmées manuellement."
-           data-en="Requests are sent through WhatsApp and confirmed manually.">
-          Les demandes sont transmises par WhatsApp
-          et confirmées manuellement.
+        <p
+          data-fr="Réservez votre chauffeur privé et profitez d'une expérience de transport pensée pour vos besoins."
+          data-en="Request your private chauffeur and enjoy a travel experience tailored to your needs.">
+          Réservez votre chauffeur privé et profitez d'une
+          expérience de transport pensée pour vos besoins.
         </p>
+
+      </div>
+    </section>
+
+    <!-- RESERVATION -->
+
+    <section class="reservation-section" id="reservation-form">
+      <div class="container reservation-layout">
+
+        <div class="form-panel">
+
+          <div class="section-heading">
+            <span class="eyebrow"
+                  data-fr="DEMANDE DE RÉSERVATION"
+                  data-en="BOOKING REQUEST">
+              DEMANDE DE RÉSERVATION
+            </span>
+
+            <h2
+              data-fr="Organisons &lt;span class='gold'&gt;votre trajet.&lt;/span&gt;"
+              data-en="Let's plan &lt;span class='gold'&gt;your journey.&lt;/span&gt;">
+              Organisons <span class="gold">votre trajet.</span>
+            </h2>
+
+            <p
+              data-fr="Complétez les informations ci-dessous. Votre demande sera préparée pour envoi par e-mail à MALO VTC. La réservation reste soumise à confirmation."
+              data-en="Complete the details below. Your request will be prepared for email delivery to MALO VTC. Your booking remains subject to confirmation.">
+              Complétez les informations ci-dessous.
+              Votre demande sera préparée pour envoi par e-mail
+              à MALO VTC. La réservation reste soumise à confirmation.
+            </p>
+          </div>
+
+          <form id="bookingForm">
+
+            <div class="form-group-title"
+                 data-fr="01 — Vos coordonnées"
+                 data-en="01 — Your Contact Details">
+              01 — Vos coordonnées
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="fullName"
+                       data-fr="Nom complet *"
+                       data-en="Full Name *">Nom complet *</label>
+                <input type="text" id="fullName" name="fullName"
+                       autocomplete="name" required maxlength="120">
+              </div>
+
+              <div class="form-field">
+                <label for="phone"
+                       data-fr="Téléphone *"
+                       data-en="Phone Number *">Téléphone *</label>
+                <input type="tel" id="phone" name="phone"
+                       autocomplete="tel" required maxlength="35">
+              </div>
+
+              <div class="form-field full">
+                <label for="email"
+                       data-fr="Adresse e-mail *"
+                       data-en="Email Address *">Adresse e-mail *</label>
+                <input type="email" id="email" name="email"
+                       autocomplete="email" required maxlength="254">
+              </div>
+
+            </div>
+
+            <div class="form-group-title"
+                 data-fr="02 — Votre trajet"
+                 data-en="02 — Your Journey">
+              02 — Votre trajet
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field full">
+                <label for="pickup"
+                       data-fr="Lieu de départ *"
+                       data-en="Pickup Location *">Lieu de départ *</label>
+                <input type="text" id="pickup" name="pickup"
+                       required maxlength="250">
+              </div>
+
+              <div class="form-field full">
+                <label for="destination"
+                       data-fr="Destination *"
+                       data-en="Destination *">Destination *</label>
+                <input type="text" id="destination" name="destination"
+                       required maxlength="250">
+              </div>
+
+              <div class="form-field">
+                <label for="travelDate"
+                       data-fr="Date du trajet *"
+                       data-en="Travel Date *">Date du trajet *</label>
+                <input type="date" id="travelDate" name="travelDate" required>
+              </div>
+
+              <div class="form-field">
+                <label for="travelTime"
+                       data-fr="Heure de départ *"
+                       data-en="Pickup Time *">Heure de départ *</label>
+                <input type="time" id="travelTime" name="travelTime" required>
+              </div>
+
+              <div class="form-field">
+                <label for="passengers"
+                       data-fr="Nombre de passagers *"
+                       data-en="Number of Passengers *">Nombre de passagers *</label>
+                <input type="number" id="passengers" name="passengers"
+                       min="1" max="20" value="1" required>
+              </div>
+
+              <div class="form-field">
+                <label for="serviceType"
+                       data-fr="Type de service *"
+                       data-en="Service Type *">Type de service *</label>
+
+                <select id="serviceType" name="serviceType" required>
+                  <option value=""
+                          data-fr="Sélectionnez un service"
+                          data-en="Select a service">
+                    Sélectionnez un service
+                  </option>
+                  <option value="Chauffeur privé"
+                          data-fr="Chauffeur privé"
+                          data-en="Private Chauffeur">
+                    Chauffeur privé
+                  </option>
+                  <option value="Transfert aéroport"
+                          data-fr="Transfert aéroport"
+                          data-en="Airport Transfer">
+                    Transfert aéroport
+                  </option>
+                  <option value="Voyage d'affaires"
+                          data-fr="Voyage d'affaires"
+                          data-en="Business Travel">
+                    Voyage d'affaires
+                  </option>
+                  <option value="Tourisme"
+                          data-fr="Tourisme"
+                          data-en="Sightseeing">
+                    Tourisme
+                  </option>
+                  <option value="Longue distance"
+                          data-fr="Longue distance"
+                          data-en="Long-Distance Travel">
+                    Longue distance
+                  </option>
+                  <option value="Événement"
+                          data-fr="Événement"
+                          data-en="Event">
+                    Événement
+                  </option>
+                  <option value="Autre"
+                          data-fr="Autre"
+                          data-en="Other">
+                    Autre
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-field full">
+                <label for="message"
+                       data-fr="Informations complémentaires"
+                       data-en="Additional Information">
+                  Informations complémentaires
+                </label>
+                <textarea id="message" name="message" maxlength="1500"></textarea>
+              </div>
+
+            </div>
+
+            <p class="form-note"
+               data-fr="* Champs obligatoires. Le formulaire ouvre votre application e-mail avec votre demande préremplie. Vérifiez et envoyez le message pour contacter MALO VTC. Aucun paiement n'est effectué ici."
+               data-en="* Required fields. This form opens your email application with a prefilled request. Review and send the message to contact MALO VTC. No payment is processed here.">
+              * Champs obligatoires. Le formulaire ouvre votre
+              application e-mail avec votre demande préremplie.
+              Vérifiez et envoyez le message pour contacter MALO VTC.
+              Aucun paiement n'est effectué ici.
+            </p>
+
+            <button type="submit" class="submit-button"
+                    data-fr="Préparer ma demande par e-mail →"
+                    data-en="Prepare My Email Request →">
+              Préparer ma demande par e-mail →
+            </button>
+
+          </form>
+        </div>
+
+        <!-- CONTACT SIDEBAR -->
+
+        <aside class="contact-sidebar">
+
+          <div class="contact-card">
+
+            <span class="eyebrow"
+                  data-fr="CONTACT DIRECT"
+                  data-en="DIRECT CONTACT">
+              CONTACT DIRECT
+            </span>
+
+            <h3
+              data-fr="Nous &lt;span class='gold'&gt;contacter.&lt;/span&gt;"
+              data-en="Get in &lt;span class='gold'&gt;touch.&lt;/span&gt;">
+              Nous <span class="gold">contacter.</span>
+            </h3>
+
+            <p
+              data-fr="Une question ou une demande particulière ? Contactez directement MALO VTC."
+              data-en="Have a question or a special request? Contact MALO VTC directly.">
+              Une question ou une demande particulière ?
+              Contactez directement MALO VTC.
+            </p>
+
+            <div class="contact-item">
+              <span class="contact-label"
+                    data-fr="TÉLÉPHONE"
+                    data-en="PHONE">TÉLÉPHONE</span>
+              <a href="tel:+33782116635">+33 7 82 11 66 35</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">E-MAIL</span>
+              <a href="mailto:info@malovtc.fr">info@malovtc.fr</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label"
+                    data-fr="ZONE DE SERVICE"
+                    data-en="SERVICE AREA">ZONE DE SERVICE</span>
+              <span>Paris · Île-de-France</span>
+            </div>
+
+          </div>
+
+          <div class="contact-card">
+
+            <span class="eyebrow"
+                  data-fr="L'EXPÉRIENCE MALO VTC"
+                  data-en="THE MALO VTC EXPERIENCE">
+              L'EXPÉRIENCE MALO VTC
+            </span>
+
+            <h3
+              data-fr="Un trajet pensé &lt;span class='gold'&gt;pour vous.&lt;/span&gt;"
+              data-en="A journey designed &lt;span class='gold'&gt;for you.&lt;/span&gt;">
+              Un trajet pensé <span class="gold">pour vous.</span>
+            </h3>
+
+            <div class="promise-list">
+
+              <div class="promise">
+                <span class="promise-mark">✦</span>
+                <span data-fr="Service de chauffeur privé"
+                      data-en="Private chauffeur service">
+                  Service de chauffeur privé
+                </span>
+              </div>
+
+              <div class="promise">
+                <span class="promise-mark">✦</span>
+                <span data-fr="Déplacements privés et professionnels"
+                      data-en="Private and business journeys">
+                  Déplacements privés et professionnels
+                </span>
+              </div>
+
+              <div class="promise">
+                <span class="promise-mark">✦</span>
+                <span data-fr="Devis personnalisé sur demande"
+                      data-en="Personalised quotes on request">
+                  Devis personnalisé sur demande
+                </span>
+              </div>
+
+              <div class="promise">
+                <span class="promise-mark">✦</span>
+                <span data-fr="Réservation confirmée directement avec MALO VTC"
+                      data-en="Booking confirmed directly with MALO VTC">
+                  Réservation confirmée directement avec MALO VTC
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+
+    <section class="contact-bottom">
+      <div class="container">
+
+        <span class="eyebrow"
+              data-fr="MALO VTC · CHAUFFEUR PRIVÉ"
+              data-en="MALO VTC · PRIVATE CHAUFFEUR">
+          MALO VTC · CHAUFFEUR PRIVÉ
+        </span>
+
+        <h2
+          data-fr="L'élégance à &lt;span class='gold'&gt;chaque destination.&lt;/span&gt;"
+          data-en="Elegance at &lt;span class='gold'&gt;every destination.&lt;/span&gt;">
+          L'élégance à <span class="gold">chaque destination.</span>
+        </h2>
+
+        <p
+          data-fr="Paris, aéroports, déplacements professionnels ou occasions spéciales : échangeons sur votre prochain trajet."
+          data-en="Paris, airports, business travel or special occasions: let's discuss your next journey.">
+          Paris, aéroports, déplacements professionnels
+          ou occasions spéciales : échangeons sur votre prochain trajet.
+        </p>
+
+        <a class="outline-button" href="tel:+33782116635"
+           data-fr="Appelez MALO VTC →"
+           data-en="Call MALO VTC →">
+          Appelez MALO VTC →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" aria-label="MALO VTC - Accueil">
+            <img src="assets/malo-logo.png"
+                 class="footer-logo"
+                 alt="MALO VTC">
+          </a>
+
+          <p
+            data-fr="Chauffeur privé à Paris et en Île-de-France. Une expérience de transport conçue autour de vos besoins."
+            data-en="Private chauffeur in Paris and Île-de-France. A travel experience designed around your needs.">
+            Chauffeur privé à Paris et en Île-de-France.
+            Une expérience de transport conçue autour de vos besoins.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3 data-fr="Navigation" data-en="Navigation">Navigation</h3>
+
+          <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+
+          <a href="services.html"
+             data-fr="Nos Services"
+             data-en="Our Services">Nos Services</a>
+
+          <a href="index.html#apropos"
+             data-fr="À propos"
+             data-en="About Us">À propos</a>
+
+          <a href="services.html#tarifs"
+             data-fr="Tarifs"
+             data-en="Pricing">Tarifs</a>
+
+          <a href="reservation.html"
+             data-fr="Contact"
+             data-en="Contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+          <h3 data-fr="Contact" data-en="Contact">Contact</h3>
+
+          <a href="tel:+33782116635">+33 7 82 11 66 35</a>
+
+          <a href="mailto:info@malovtc.fr">info@malovtc.fr</a>
+
+          <a href="#reservation-form"
+             data-fr="Demander un devis"
+             data-en="Request a Quote">
+            Demander un devis
+          </a>
+        </div>
+
       </div>
 
-      <div class="contact-item">
-        <strong data-fr="Zone de service"
-                data-en="Service area">
-          Zone de service
-        </strong>
-        <p>Paris · Île-de-France</p>
+      <div class="footer-bottom">
+
+        <span>
+          © <span id="currentYear"></span> MALO VTC.
+          <span data-fr="Tous droits réservés."
+                data-en="All rights reserved.">
+            Tous droits réservés.
+          </span>
+        </span>
+
+        <span>
+          <span data-fr="Conçu par"
+                data-en="Designed by">Conçu par</span>
+          <strong>GODZYA GROUP</strong>
+          — We Build. You Grow.
+        </span>
+
       </div>
 
-      <a href="index.html" class="btn"
-         data-fr="Retour à l'accueil"
-         data-en="Back to homepage">
-        Retour à l'accueil
-      </a>
-    </aside>
+    </div>
+  </footer>
 
-  </div>
-</section>
+  <!-- JAVASCRIPT -->
 
-</main>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-<!-- FOOTER -->
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      const languageSwitcher = document.getElementById("languageSwitcher");
+      const languageButton = document.getElementById("languageButton");
+      const languageMenu = document.getElementById("languageMenu");
+      const languageOptions = document.querySelectorAll("[data-lang]");
+      const bookingForm = document.getElementById("bookingForm");
 
-<footer>
-  <div class="container footer-inner">
-    <span>
-      © <span id="year"></span>
-      MALO VTC · Paris / Île-de-France
-    </span>
+      let currentLanguage = "fr";
 
-    <span data-fr="Site conçu par GODZYA GROUP · We Build. You Grow."
-          data-en="Website by GODZYA GROUP · We Build. You Grow.">
-      Site conçu par GODZYA GROUP · We Build. You Grow.
-    </span>
-  </div>
-</footer>
+      /* MOBILE MENU */
 
-<!-- JAVASCRIPT -->
+      function closeMenu() {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("menu-open");
+      }
 
-<script>
-  // Owner's number must be verified before activation.
-  // International format, digits only, without +.
-  const MALO_WHATSAPP_NUMBER = "";
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("menu-open", isOpen);
+      });
 
-  const menu = document.getElementById("menu");
-  const navigation = document.getElementById("navigation");
-  const langButton = document.getElementById("lang");
-  const form = document.getElementById("bookingForm");
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+      });
 
-  let currentLanguage = "fr";
+      /* LANGUAGE MENU */
 
-  try {
-    if (localStorage.getItem("maloLanguage") === "en") {
-      currentLanguage = "en";
-    }
-  } catch (error) {}
+      function closeLanguageMenu() {
+        languageMenu.classList.remove("open");
+        languageButton.setAttribute("aria-expanded", "false");
+      }
 
-  function applyLanguage() {
-    document.documentElement.lang = currentLanguage;
+      languageButton.addEventListener("click", () => {
+        const isOpen = languageMenu.classList.toggle("open");
+        languageButton.setAttribute("aria-expanded", String(isOpen));
+      });
 
-    document.querySelectorAll("[data-fr][data-en]")
-      .forEach(function(element) {
-        const translation = element.getAttribute(
-          "data-" + currentLanguage
+      function applyLanguage(language) {
+        currentLanguage = language === "en" ? "en" : "fr";
+        document.documentElement.lang = currentLanguage;
+
+        document.querySelectorAll("[data-fr][data-en]").forEach(element => {
+          const translation = element.getAttribute("data-" + currentLanguage);
+
+          if (translation !== null) {
+            element.innerHTML = translation;
+          }
+        });
+
+        languageButton.textContent =
+          currentLanguage === "fr" ? "🇫🇷 FR ▾" : "🇬🇧 EN ▾";
+
+        menuToggle.setAttribute(
+          "aria-label",
+          currentLanguage === "fr" ? "Ouvrir le menu" : "Open menu"
         );
 
-        if (translation !== null) {
-          element.innerHTML = translation;
+        try {
+          localStorage.setItem("maloLanguage", currentLanguage);
+        } catch (error) {
+          /* Language remains active even if storage is unavailable. */
+        }
+
+        closeLanguageMenu();
+      }
+
+      languageOptions.forEach(option => {
+        option.addEventListener("click", () => {
+          applyLanguage(option.dataset.lang);
+        });
+      });
+
+      document.addEventListener("click", event => {
+        if (!languageSwitcher.contains(event.target)) {
+          closeLanguageMenu();
+        }
+
+        if (
+          !event.target.closest(".site-header") &&
+          navLinks.classList.contains("open")
+        ) {
+          closeMenu();
         }
       });
 
-    langButton.textContent =
-      currentLanguage === "fr" ? "EN" : "FR";
-  }
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          closeLanguageMenu();
+          closeMenu();
+        }
+      });
 
-  langButton.addEventListener("click", function() {
-    currentLanguage =
-      currentLanguage === "fr" ? "en" : "fr";
+      let savedLanguage = "fr";
 
-    try {
-      localStorage.setItem(
-        "maloLanguage",
-        currentLanguage
-      );
-    } catch (error) {}
+      try {
+        savedLanguage = localStorage.getItem("maloLanguage") || "fr";
+      } catch (error) {
+        savedLanguage = "fr";
+      }
 
-    applyLanguage();
-  });
+      applyLanguage(savedLanguage);
 
-  menu.addEventListener("click", function() {
-    const isOpen = navigation.classList.toggle("open");
-    menu.setAttribute("aria-expanded", String(isOpen));
-  });
+      /* TRAVEL DATE */
 
-  navigation.querySelectorAll("a").forEach(function(link) {
-    link.addEventListener("click", function() {
-      navigation.classList.remove("open");
-      menu.setAttribute("aria-expanded", "false");
+      const travelDate = document.getElementById("travelDate");
+
+      function getParisDate() {
+        const parts = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Europe/Paris",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).formatToParts(new Date());
+
+        const values = {};
+
+        parts.forEach(part => {
+          values[part.type] = part.value;
+        });
+
+        return `${values.year}-${values.month}-${values.day}`;
+      }
+
+      travelDate.min = getParisDate();
+
+      /* EMAIL BOOKING REQUEST */
+
+      bookingForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        if (!bookingForm.reportValidity()) {
+          return;
+        }
+
+        const data = new FormData(bookingForm);
+
+        const fullName = String(data.get("fullName") || "").trim();
+        const phone = String(data.get("phone") || "").trim();
+        const email = String(data.get("email") || "").trim();
+        const pickup = String(data.get("pickup") || "").trim();
+        const destination = String(data.get("destination") || "").trim();
+        const date = String(data.get("travelDate") || "");
+        const time = String(data.get("travelTime") || "");
+        const passengers = String(data.get("passengers") || "");
+        const serviceType = String(data.get("serviceType") || "");
+        const message = String(data.get("message") || "").trim();
+
+        if (date < getParisDate()) {
+          alert(
+            currentLanguage === "fr"
+              ? "Veuillez choisir une date actuelle ou future."
+              : "Please select today or a future date."
+          );
+          travelDate.focus();
+          return;
+        }
+
+        const subject =
+          "MALO VTC - Demande de réservation - " + fullName;
+
+        const lines = [
+          "MALO VTC - DEMANDE DE RÉSERVATION",
+          "",
+          "Nom : " + fullName,
+          "Téléphone : " + phone,
+          "E-mail : " + email,
+          "",
+          "Départ : " + pickup,
+          "Destination : " + destination,
+          "Date : " + date,
+          "Heure : " + time,
+          "Passagers : " + passengers,
+          "Service : " + serviceType,
+          "",
+          "Informations complémentaires :",
+          message || "Aucune",
+          "",
+          "Cette demande nécessite une confirmation de MALO VTC."
+        ];
+
+        const mailto =
+          "mailto:info@malovtc.fr" +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(lines.join("\n"));
+
+        window.location.href = mailto;
+      });
+
+      /* FOOTER YEAR */
+
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
     });
-  });
-
-  const dateField = document.getElementById("date");
-
-  function getTodayLocal() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1)
-      .padStart(2, "0");
-    const day = String(today.getDate())
-      .padStart(2, "0");
-
-    return year + "-" + month + "-" + day;
-  }
-
-  dateField.min = getTodayLocal();
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    if (!form.reportValidity()) return;
-
-    const data = new FormData(form);
-    const get = key => String(data.get(key) || "").trim();
-
-    if (get("date") < getTodayLocal()) {
-      alert(currentLanguage === "fr"
-        ? "Veuillez choisir une date valide."
-        : "Please select a valid date.");
-      return;
-    }
-
-    if (!MALO_WHATSAPP_NUMBER) {
-      alert(currentLanguage === "fr"
-        ? "La réservation WhatsApp sera disponible après confirmation du numéro professionnel."
-        : "WhatsApp booking will be available once the business number is confirmed.");
-      return;
-    }
-
-    const isFrench = currentLanguage === "fr";
-
-    const lines = [
-      isFrench
-        ? "DEMANDE DE RÉSERVATION — MALO VTC"
-        : "BOOKING REQUEST — MALO VTC",
-      "",
-      (isFrench ? "Nom : " : "Name: ") + get("fullname"),
-      (isFrench ? "Téléphone : " : "Phone: ") + get("phone"),
-      "Email: " + (get("email") || "—"),
-      (isFrench ? "Départ : " : "Pickup: ") + get("pickup"),
-      "Destination: " + get("destination"),
-      (isFrench ? "Date : " : "Date: ") + get("date"),
-      (isFrench ? "Heure : " : "Time: ") + get("time"),
-      (isFrench ? "Passagers : " : "Passengers: ")
-        + get("passengers"),
-      (isFrench ? "Trajet : " : "Journey: ")
-        + (get("journeyType") === "return"
-          ? (isFrench ? "Aller-retour" : "Round trip")
-          : (isFrench ? "Aller simple" : "One-way")),
-      (isFrench ? "Notes : " : "Notes: ") + (get("notes") || "—"),
-      "",
-      isFrench
-        ? "Merci de confirmer la disponibilité et le tarif."
-        : "Please confirm availability and pricing."
-    ];
-
-    const url = "https://wa.me/"
-      + MALO_WHATSAPP_NUMBER
-      + "?text=" + encodeURIComponent(lines.join("\n"));
-
-    window.location.href = url;
-  });
-
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-  applyLanguage();
-</script>
+  </script>
 
 </body>
 </html>
