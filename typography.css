@@ -1,1 +1,162 @@
+/* =====================================================
+   MALO VTC — PREMIUM TYPOGRAPHY SYSTEM
+   Applies to: Home, Services and Reservation
+   ===================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --malo-font-heading: 'Cormorant Garamond', Georgia, serif;
+  --malo-font-body: 'DM Sans', Arial, sans-serif;
+
+  --malo-text-white: #f7f5f0;
+  --malo-text-muted: #c4c8d0;
+  --malo-text-gold: #d6b77a;
+}
+
+/* GLOBAL BODY */
+
+body {
+  font-family: var(--malo-font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* MAIN HEADINGS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--malo-font-heading);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+/* HERO TITLES */
+
+h1 {
+  font-size: clamp(2.8rem, 5vw, 4.1rem);
+  font-weight: 500;
+}
+
+/* SECTION TITLES */
+
+h2 {
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+}
+
+/* CARD TITLES */
+
+h3 {
+  font-size: clamp(1.65rem, 2.5vw, 2rem);
+}
+
+/* SMALL HEADINGS */
+
+h4 {
+  font-size: 1.5rem;
+}
+
+/* PARAGRAPHS */
+
+p {
+  font-family: var(--malo-font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+
+/* NAVIGATION */
+
+nav,
+nav a,
+.nav-links,
+.nav-links a {
+  font-family: var(--malo-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* BUTTONS */
+
+button,
+.btn,
+.button,
+input[type="submit"] {
+  font-family: var(--malo-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* FORMS */
+
+input,
+textarea,
+select,
+label {
+  font-family: var(--malo-font-body);
+  font-size: 0.9375rem;
+}
+
+/* SMALL LABELS */
+
+.eyebrow,
+.section-label,
+.overline {
+  font-family: var(--malo-font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+
+footer,
+footer p,
+footer a {
+  font-family: var(--malo-font-body);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+/* MOBILE TYPOGRAPHY */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 9vw, 3.4rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+
+  h3 {
+    font-size: 1.65rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+
+  button,
+  .btn,
+  .button {
+    font-size: 0.8125rem;
+  }
+}
