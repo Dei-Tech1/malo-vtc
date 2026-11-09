@@ -448,3 +448,370 @@
   </div>
         </section>
         
+
+<!-- MALO VTC — RESERVATION FORM -->
+
+<section class="booking-section" id="reservation">
+  <div class="container booking-layout">
+
+    <div class="booking-card">
+      <div class="section-label"
+           data-fr="DEMANDE DE RÉSERVATION"
+           data-en="BOOKING REQUEST">
+        DEMANDE DE RÉSERVATION
+      </div>
+
+      <h2 data-fr="Organisons votre <span class='gold'>trajet.</span>"
+          data-en="Plan your <span class='gold'>journey.</span>">
+        Organisons votre <span class="gold">trajet.</span>
+      </h2>
+
+      <form id="bookingForm">
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="fullname"
+                   data-fr="Nom complet *"
+                   data-en="Full name *">Nom complet *</label>
+            <input type="text" id="fullname"
+                   name="fullname" autocomplete="name"
+                   required maxlength="100">
+          </div>
+
+          <div class="field">
+            <label for="phone"
+                   data-fr="Téléphone *"
+                   data-en="Phone number *">Téléphone *</label>
+            <input type="tel" id="phone"
+                   name="phone" autocomplete="tel"
+                   required maxlength="30">
+          </div>
+
+          <div class="field full">
+            <label for="email"
+                   data-fr="Adresse e-mail (facultatif)"
+                   data-en="Email address (optional)">
+              Adresse e-mail (facultatif)
+            </label>
+            <input type="email" id="email"
+                   name="email" autocomplete="email"
+                   maxlength="150">
+          </div>
+
+          <div class="field full">
+            <label for="pickup"
+                   data-fr="Lieu de départ *"
+                   data-en="Pickup location *">
+              Lieu de départ *
+            </label>
+            <input type="text" id="pickup"
+                   name="pickup" required maxlength="250">
+          </div>
+
+          <div class="field full">
+            <label for="destination"
+                   data-fr="Destination *"
+                   data-en="Destination *">
+              Destination *
+            </label>
+            <input type="text" id="destination"
+                   name="destination" required maxlength="250">
+          </div>
+
+          <div class="field">
+            <label for="date"
+                   data-fr="Date du trajet *"
+                   data-en="Journey date *">
+              Date du trajet *
+            </label>
+            <input type="date" id="date"
+                   name="date" required>
+          </div>
+
+          <div class="field">
+            <label for="time"
+                   data-fr="Heure de départ *"
+                   data-en="Pickup time *">
+              Heure de départ *
+            </label>
+            <input type="time" id="time"
+                   name="time" required>
+          </div>
+
+          <div class="field">
+            <label for="passengers"
+                   data-fr="Nombre de passagers *"
+                   data-en="Number of passengers *">
+              Nombre de passagers *
+            </label>
+            <input type="number" id="passengers"
+                   name="passengers" min="1" max="8"
+                   value="1" required>
+          </div>
+
+          <div class="field">
+            <label for="journeyType"
+                   data-fr="Type de trajet *"
+                   data-en="Journey type *">
+              Type de trajet *
+            </label>
+            <select id="journeyType"
+                    name="journeyType" required>
+              <option value="oneway"
+                      data-fr="Aller simple"
+                      data-en="One-way">
+                Aller simple
+              </option>
+              <option value="return"
+                      data-fr="Aller-retour"
+                      data-en="Round trip">
+                Aller-retour
+              </option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="notes"
+                   data-fr="Informations complémentaires"
+                   data-en="Additional information">
+              Informations complémentaires
+            </label>
+            <textarea id="notes" name="notes"
+                      maxlength="1000"></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit"
+                class="btn primary submit-btn"
+                data-fr="Envoyer la demande via WhatsApp"
+                data-en="Send request via WhatsApp">
+          Envoyer la demande via WhatsApp
+        </button>
+
+        <p class="form-note"
+           data-fr="Vous serez redirigé vers WhatsApp pour envoyer votre demande. Aucun trajet n'est confirmé avant la réponse de MALO VTC."
+           data-en="You will be redirected to WhatsApp to send your request. No journey is confirmed until MALO VTC responds.">
+          Vous serez redirigé vers WhatsApp pour envoyer
+          votre demande. Aucun trajet n'est confirmé
+          avant la réponse de MALO VTC.
+        </p>
+      </form>
+    </div>
+
+    <!-- CONTACT INFORMATION -->
+
+    <aside class="contact-panel">
+      <div class="section-label"
+           data-fr="CONTACT DIRECT"
+           data-en="DIRECT CONTACT">
+        CONTACT DIRECT
+      </div>
+
+      <h3 data-fr="Restons en contact."
+          data-en="Let's stay in touch.">
+        Restons en contact.
+      </h3>
+
+      <p data-fr="Une question concernant votre trajet ? Contactez MALO VTC directement."
+         data-en="Have a question about your journey? Contact MALO VTC directly.">
+        Une question concernant votre trajet ?
+        Contactez MALO VTC directement.
+      </p>
+
+      <div class="contact-item">
+        <strong data-fr="Téléphone"
+                data-en="Telephone">Téléphone</strong>
+        <a id="phoneLink" href="#">
+          Numéro en attente de confirmation
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <strong>WhatsApp</strong>
+        <p data-fr="Les demandes sont transmises par WhatsApp et confirmées manuellement."
+           data-en="Requests are sent through WhatsApp and confirmed manually.">
+          Les demandes sont transmises par WhatsApp
+          et confirmées manuellement.
+        </p>
+      </div>
+
+      <div class="contact-item">
+        <strong data-fr="Zone de service"
+                data-en="Service area">
+          Zone de service
+        </strong>
+        <p>Paris · Île-de-France</p>
+      </div>
+
+      <a href="index.html" class="btn"
+         data-fr="Retour à l'accueil"
+         data-en="Back to homepage">
+        Retour à l'accueil
+      </a>
+    </aside>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container footer-inner">
+    <span>
+      © <span id="year"></span>
+      MALO VTC · Paris / Île-de-France
+    </span>
+
+    <span data-fr="Site conçu par GODZYA GROUP · We Build. You Grow."
+          data-en="Website by GODZYA GROUP · We Build. You Grow.">
+      Site conçu par GODZYA GROUP · We Build. You Grow.
+    </span>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+  // Owner's number must be verified before activation.
+  // International format, digits only, without +.
+  const MALO_WHATSAPP_NUMBER = "";
+
+  const menu = document.getElementById("menu");
+  const navigation = document.getElementById("navigation");
+  const langButton = document.getElementById("lang");
+  const form = document.getElementById("bookingForm");
+
+  let currentLanguage = "fr";
+
+  try {
+    if (localStorage.getItem("maloLanguage") === "en") {
+      currentLanguage = "en";
+    }
+  } catch (error) {}
+
+  function applyLanguage() {
+    document.documentElement.lang = currentLanguage;
+
+    document.querySelectorAll("[data-fr][data-en]")
+      .forEach(function(element) {
+        const translation = element.getAttribute(
+          "data-" + currentLanguage
+        );
+
+        if (translation !== null) {
+          element.innerHTML = translation;
+        }
+      });
+
+    langButton.textContent =
+      currentLanguage === "fr" ? "EN" : "FR";
+  }
+
+  langButton.addEventListener("click", function() {
+    currentLanguage =
+      currentLanguage === "fr" ? "en" : "fr";
+
+    try {
+      localStorage.setItem(
+        "maloLanguage",
+        currentLanguage
+      );
+    } catch (error) {}
+
+    applyLanguage();
+  });
+
+  menu.addEventListener("click", function() {
+    const isOpen = navigation.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navigation.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      navigation.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  const dateField = document.getElementById("date");
+
+  function getTodayLocal() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1)
+      .padStart(2, "0");
+    const day = String(today.getDate())
+      .padStart(2, "0");
+
+    return year + "-" + month + "-" + day;
+  }
+
+  dateField.min = getTodayLocal();
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const get = key => String(data.get(key) || "").trim();
+
+    if (get("date") < getTodayLocal()) {
+      alert(currentLanguage === "fr"
+        ? "Veuillez choisir une date valide."
+        : "Please select a valid date.");
+      return;
+    }
+
+    if (!MALO_WHATSAPP_NUMBER) {
+      alert(currentLanguage === "fr"
+        ? "La réservation WhatsApp sera disponible après confirmation du numéro professionnel."
+        : "WhatsApp booking will be available once the business number is confirmed.");
+      return;
+    }
+
+    const isFrench = currentLanguage === "fr";
+
+    const lines = [
+      isFrench
+        ? "DEMANDE DE RÉSERVATION — MALO VTC"
+        : "BOOKING REQUEST — MALO VTC",
+      "",
+      (isFrench ? "Nom : " : "Name: ") + get("fullname"),
+      (isFrench ? "Téléphone : " : "Phone: ") + get("phone"),
+      "Email: " + (get("email") || "—"),
+      (isFrench ? "Départ : " : "Pickup: ") + get("pickup"),
+      "Destination: " + get("destination"),
+      (isFrench ? "Date : " : "Date: ") + get("date"),
+      (isFrench ? "Heure : " : "Time: ") + get("time"),
+      (isFrench ? "Passagers : " : "Passengers: ")
+        + get("passengers"),
+      (isFrench ? "Trajet : " : "Journey: ")
+        + (get("journeyType") === "return"
+          ? (isFrench ? "Aller-retour" : "Round trip")
+          : (isFrench ? "Aller simple" : "One-way")),
+      (isFrench ? "Notes : " : "Notes: ") + (get("notes") || "—"),
+      "",
+      isFrench
+        ? "Merci de confirmer la disponibilité et le tarif."
+        : "Please confirm availability and pricing."
+    ];
+
+    const url = "https://wa.me/"
+      + MALO_WHATSAPP_NUMBER
+      + "?text=" + encodeURIComponent(lines.join("\n"));
+
+    window.location.href = url;
+  });
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  applyLanguage();
+</script>
+
+</body>
+</html>
