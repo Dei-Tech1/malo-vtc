@@ -926,25 +926,67 @@
 
     <div class="home-services-grid">
 
-      <article class="home-service-card">
-        <div class="home-service-icon">♛</div>
+      
+<article class="home-service-card flip-card" id="chauffeurCard">
+  <div class="flip-card-inner">
 
-        <h3 data-fr="Chauffeur privé"
-            data-en="Private Chauffeur">
-          Chauffeur privé
-        </h3>
+    <!-- FRONT -->
+    <div class="flip-card-face flip-card-front">
+      <div class="home-service-icon">♛</div>
 
-        <p data-fr="Un service de transport personnalisé pour vos déplacements privés et professionnels."
-           data-en="A personalised transport service for your private and professional journeys.">
-          Un service de transport personnalisé pour vos déplacements privés et professionnels.
-        </p>
+      <h3 data-fr="Chauffeur privé"
+          data-en="Private Chauffeur">
+        Chauffeur privé
+      </h3>
 
-        <a href="services.html"
-           data-fr="Découvrir le service →"
-           data-en="Explore the service →">
-          Découvrir le service →
-        </a>
-      </article>
+      <p data-fr="Un service personnalisé pour vos déplacements privés et professionnels."
+         data-en="A personalised service for your private and professional journeys.">
+        Un service personnalisé pour vos déplacements privés et professionnels.
+      </p>
+
+      <button class="flip-card-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="chauffeurCardBack"
+              onclick="const card=this.closest('.flip-card'); const open=card.classList.toggle('is-flipped'); this.setAttribute('aria-expanded', String(open));"
+              data-fr="Découvrir l'expérience →"
+              data-en="Discover the experience →">
+        Découvrir l'expérience →
+      </button>
+    </div>
+
+    <!-- BACK -->
+    <div class="flip-card-face flip-card-back"
+         id="chauffeurCardBack">
+
+      <h3 data-fr="Votre trajet, notre attention"
+          data-en="Your journey, our attention">
+        Votre trajet, notre attention
+      </h3>
+
+      <p data-fr="Pour un rendez-vous professionnel, une occasion spéciale ou un déplacement personnel, MALO VTC vous accompagne avec un service adapté à votre itinéraire et à vos attentes. Chaque trajet est pensé pour vous offrir confort, tranquillité et une expérience soignée."
+         data-en="For a business appointment, a special occasion or a personal journey, MALO VTC offers a service tailored to your itinerary and expectations. Every journey is designed around your comfort, peace of mind and a refined travel experience.">
+        Pour un rendez-vous professionnel, une occasion spéciale ou un déplacement personnel, MALO VTC vous accompagne avec un service adapté à votre itinéraire et à vos attentes. Chaque trajet est pensé pour vous offrir confort, tranquillité et une expérience soignée.
+      </p>
+
+      <a href="reservation.html"
+         class="flip-booking-button"
+         data-fr="En savoir plus & réserver →"
+         data-en="Learn more & book →">
+        En savoir plus & réserver →
+      </a>
+
+      <button class="flip-card-return"
+              type="button"
+              onclick="const card=this.closest('.flip-card'); card.classList.remove('is-flipped'); card.querySelector('.flip-card-trigger').setAttribute('aria-expanded','false');"
+              data-fr="← Retour"
+              data-en="← Back">
+        ← Retour
+      </button>
+    </div>
+
+  </div>
+</article>
 
       <article class="home-service-card">
         <div class="home-service-icon">✈</div>
