@@ -1,1 +1,450 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#081726">
+
+  <meta name="description"
+        content="Demandez votre réservation MALO VTC à Paris et en Île-de-France.">
+
+  <title>Réservation & Contact | MALO VTC</title>
+
+  <style>
+    :root {
+      --navy: #081726;
+      --navy-light: #10283d;
+      --gold: #d7b878;
+      --white: #f8f5ee;
+      --muted: #b8c4cd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--navy);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      background: #081726;
+      border-bottom: 1px solid #ffffff28;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font: bold 29px Georgia, serif;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .brand span,
+    .gold {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .lang,
+    .menu {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 10px 13px;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .page-hero {
+      padding: 95px 0 80px;
+      background:
+        radial-gradient(
+          ellipse at 85% 40%,
+          #234866,
+          transparent 48%
+        ),
+        linear-gradient(
+          130deg,
+          #081726,
+          #0c2237
+        );
+      border-bottom: 1px solid #d7b87835;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font: 400 clamp(44px, 7vw, 78px)/1.1 Georgia, serif;
+      max-width: 850px;
+      margin: 22px 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 700px;
+      font-size: 17px;
+    }
+
+    .booking-section {
+      padding: 85px 0;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .booking-card {
+      background: linear-gradient(
+        145deg,
+        #142c40,
+        #0b1d2e
+      );
+      border: 1px solid #d7b87855;
+      padding: 38px;
+    }
+
+    .section-label {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font: 400 clamp(30px, 4vw, 46px) Georgia, serif;
+      margin: 18px 0 26px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 13px;
+      color: #e8e2d6;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ffffff35;
+      border-radius: 0;
+      background: #071624;
+      color: var(--white);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--gold);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+      padding: 16px 24px;
+      background: transparent;
+      color: var(--white);
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn:hover {
+      filter: brightness(1.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 18px;
+    }
+
+    .contact-panel {
+      padding: 35px;
+      border: 1px solid #d7b87855;
+      background: #10283d;
+    }
+
+    .contact-panel h3 {
+      font: 30px Georgia, serif;
+      margin: 18px 0;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .contact-item {
+      border-top: 1px solid #ffffff25;
+      padding: 22px 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .contact-item a {
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item a:hover {
+      color: var(--gold);
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid #ffffff22;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand {
+        font-size: 24px;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #081726;
+        padding: 24px;
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: 1px solid #d7b87877;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .page-hero {
+        padding: 70px 0;
+      }
+
+      .booking-layout,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-section {
+        padding: 60px 0;
+      }
+
+      .booking-card,
+      .contact-panel {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a class="brand" href="index.html">
+      MALO <span>VTC</span>
+    </a>
+
+    <button class="menu"
+            id="menu"
+            aria-controls="navigation"
+            aria-expanded="false">
+      ☰ Menu
+    </button>
+
+    <nav id="navigation"
+         aria-label="Navigation principale">
+
+      <a href="index.html"
+         data-fr="Accueil"
+         data-en="Home">
+        Accueil
+      </a>
+
+      <a href="index.html#services"
+         data-fr="Nos services"
+         data-en="Our services">
+        Nos services
+      </a>
+
+      <a href="index.html#engagement"
+         data-fr="Notre engagement"
+         data-en="Our commitment">
+        Notre engagement
+      </a>
+
+      <a href="reservation.html"
+         data-fr="Réservation"
+         data-en="Booking">
+        Réservation
+      </a>
+
+      <button class="lang"
+              id="lang"
+              aria-label="Changer de langue">
+        EN
+      </button>
+
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+
+    <div class="eyebrow"
+         data-fr="MALO VTC · PARIS / ÎLE-DE-FRANCE"
+         data-en="MALO VTC · PARIS / ÎLE-DE-FRANCE">
+      MALO VTC · PARIS / ÎLE-DE-FRANCE
+    </div>
+
+    <h1
+      data-fr="Votre trajet, <span class='gold'>notre attention.</span>"
+      data-en="Your journey, <span class='gold'>our attention.</span>">
+      Votre trajet,
+      <span class="gold">notre attention.</span>
+    </h1>
+
+    <p class="lead"
+       data-fr="Communiquez les détails de votre déplacement. Nous vous répondrons pour confirmer la disponibilité et les modalités de votre réservation."
+       data-en="Share your journey details. We will respond to confirm availability and booking arrangements.">
+      Communiquez les détails de votre déplacement.
+      Nous vous répondrons pour confirmer la disponibilité
+      et les modalités de votre réservation.
+    </p>
+
+  </div>
+        </section>
+        
