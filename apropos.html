@@ -688,6 +688,24 @@
       });
     });
 
+    
     document.addEventListener("click", event => {
       if (!event.target.closest(".language")) {
-        languageMenu.class
+        languageMenu.classList.remove("open");
+        languageButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    setLanguage(
+      localStorage.getItem("maloLanguage") === "en"
+        ? "en"
+        : "fr"
+    );
+  </script>
+
+</body>
+</html>
+
