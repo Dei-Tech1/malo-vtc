@@ -706,6 +706,50 @@
     margin: 0 auto;
   }
 
+/* HOMEPAGE PHOTOGRAPHIC SERVICE CARDS */
+.home-service-card.photo-card {
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.home-service-card.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 13, 27, .12) 0%,
+    rgba(3, 13, 27, .60) 42%,
+    rgba(3, 13, 27, .96) 100%
+  );
+}
+
+.home-service-card.photo-card h3 {
+  color: #ffffff;
+}
+
+.home-service-card.photo-card p {
+  color: #e3e8ef;
+}
+
+.home-service-card.photo-card a {
+  color: var(--gold);
+}
+
+@media (max-width: 650px) {
+  .home-service-card.photo-card {
+    min-height: 350px;
+    padding: 26px;
+  }
+ 
+}
   /* PREMIUM SERVICE CARDS */
 
   .home-services-grid {
