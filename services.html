@@ -2138,14 +2138,27 @@ document.addEventListener("DOMContentLoaded", () => {
 const translatableElements =
   document.querySelectorAll("[data-fr][data-en]");
 
-/* 3D SERVICE CARDS — TAP AND KEYBOARD */
+
+/* 3D SERVICE CARDS — ONLY ONE OPEN AT A TIME */
 const flipCards = document.querySelectorAll(".flip-card");
+
+function toggleServiceCard(selectedCard) {
+  const shouldOpen = !selectedCard.classList.contains("is-flipped");
+
+  flipCards.forEach(card => {
+    card.classList.remove("is-flipped");
+  });
+
+  if (shouldOpen) {
+    selectedCard.classList.add("is-flipped");
+  }
+}
 
 flipCards.forEach(card => {
   card.addEventListener("click", event => {
     if (event.target.closest("a, button")) return;
 
-    card.classList.toggle("is-flipped");
+    toggleServiceCard(card);
   });
 
   card.addEventListener("keydown", event => {
@@ -2153,7 +2166,7 @@ flipCards.forEach(card => {
 
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      card.classList.toggle("is-flipped");
+      toggleServiceCard(card);
     }
   });
 });
