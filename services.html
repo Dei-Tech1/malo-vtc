@@ -412,9 +412,15 @@
       }
 
       .language-menu {
-        position: static;
-        margin-top: 10px;
-      }
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  width: 165px;
+  min-width: 165px;
+  margin-top: 0;
+  z-index: 1200;
+}
     }
 
     @media (max-width: 600px) {
