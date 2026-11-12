@@ -2090,8 +2090,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const languageOptions =
     document.querySelectorAll("[data-lang]");
 
-  const translatableElements =
-    document.querySelectorAll("[data-fr][data-en]");
+const translatableElements =
+  document.querySelectorAll("[data-fr][data-en]");
+
+/* 3D SERVICE CARDS — TAP AND KEYBOARD */
+const flipCards = document.querySelectorAll(".flip-card");
+
+flipCards.forEach(card => {
+  card.addEventListener("click", event => {
+    if (event.target.closest("a, button")) return;
+
+    card.classList.toggle("is-flipped");
+  });
+
+  card.addEventListener("keydown", event => {
+    if (event.target !== card) return;
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      card.classList.toggle("is-flipped");
+    }
+  });
+});
 
   /* =====================================
      MOBILE NAVIGATION
