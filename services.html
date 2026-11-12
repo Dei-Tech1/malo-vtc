@@ -638,8 +638,8 @@
   transition: transform .8s ease;
 }
 
-.flip-card:hover .flip-card-inner,
-.flip-card:focus-within .flip-card-inner {
+/* Card rotation is controlled by JavaScript */
+.flip-card.is-flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
 
