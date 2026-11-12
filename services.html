@@ -671,6 +671,42 @@
 .flip-card .flip-card-back .premium-service-content {
   width: 100%;
 }
+  
+/* FIRST SERVICE CARD — FRONT PHOTO */
+.flip-card-front.service-private {
+  background-image: url("assets/service-private.jpg");
+}
+
+/* MOBILE AND KEYBOARD FLIP */
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-hint {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.flip-card-front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    to top,
+    rgba(2,10,21,.98),
+    rgba(2,10,21,.65) 55%,
+    rgba(2,10,21,.15)
+  );
+}
+
+.flip-card-front .premium-service-content {
+  position: relative;
+  z-index: 1;
+}
 
   .premium-service-card::before {
     content: "";
