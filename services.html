@@ -2139,13 +2139,18 @@
   }
 
   /* RESPONSIVE FOOTER */
-
-  @media (max-width: 850px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
+  
+@media (max-width: 850px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+    row-gap: 35px;
   }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
 
   @media (max-width: 600px) {
     .services-final-cta {
