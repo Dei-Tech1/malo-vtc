@@ -2469,11 +2469,15 @@ flipCards.forEach(card => {
         element.innerHTML = translation;
       }
     });
+ 
+languageButton.innerHTML = `
+  <img class="language-flag"
+       src="https://flagcdn.com/w40/${selectedLanguage === "fr" ? "fr" : "gb"}.png"
+       alt="">
+  <span>${selectedLanguage.toUpperCase()}</span>
+  <span aria-hidden="true">▾</span>
+`;
 
-    languageButton.textContent =
-      selectedLanguage === "fr"
-        ? "🇫🇷 FR ▾"
-        : "🇬🇧 EN ▾";
 
     try {
       localStorage.setItem(
