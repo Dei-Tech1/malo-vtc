@@ -454,39 +454,47 @@
       .nav-links.open { display: flex; }
 
       .story-grid { gap: 35px; }
+    
+/* TABLET FOOTER */
+@media (max-width: 850px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+    row-gap: 35px;
+  }
 
-      .footer-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-      }
-    }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
 
-    /* MOBILE */
-    @media (max-width: 650px) {
-      .navbar { min-height: 82px; }
-      .brand img { width: 75px; height: 75px; }
-      .nav-links { top: 82px; }
+/* MOBILE FOOTER */
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    margin-bottom: 40px;
+  }
 
-      .about-hero { min-height: 460px; }
-      .story-section { padding: 70px 0; }
+  .footer-brand {
+    grid-column: auto;
+  }
 
-      .story-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
+  .footer-column h3 {
+    margin-bottom: 15px;
+  }
 
-      .story-image,
-      .portrait-placeholder { min-height: 340px; }
+  .footer-column a {
+    margin-bottom: 11px;
+  }
 
-      .story-content h2 { font-size: 34px; }
+  .site-footer {
+    padding-top: 60px;
+  }
 
-      .about-cta { padding: 85px 20px; }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      .footer-bottom { flex-direction: column; }
+  .footer-bottom {
+    flex-direction: column;
+  }
     }
   </style>
 </head>
