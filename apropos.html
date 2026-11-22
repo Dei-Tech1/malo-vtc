@@ -203,15 +203,121 @@
       color: var(--navy) !important;
     }
 
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 8px 13px;
-      border-radius: 6px;
-      font-size: 23px;
-    }
+
+/* PREMIUM HEADER */
+
+.navbar {
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand img {
+  width: 108px;
+  height: 108px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links > a {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color .3s;
+}
+
+.nav-links > a:hover,
+.nav-links > a.active {
+  color: var(--gold);
+}
+
+.nav-links > a.active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 6px;
+  background: var(--gold);
+}
+
+/* LANGUAGE DROPDOWN */
+
+.language {
+  position: relative;
+}
+
+.language-button {
+  background: rgba(5, 17, 32, .8);
+  border: 1px solid rgba(230, 189, 104, .65);
+  border-radius: 30px;
+  color: white;
+  padding: 9px 15px;
+  white-space: nowrap;
+}
+
+.language-flag {
+  display: inline-block;
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+.language-menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BOOKING BUTTON */
+
+.nav-booking {
+  border: 2px solid var(--gold);
+  border-radius: 35px;
+  padding: 12px 18px;
+  color: var(--gold) !important;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background .3s, color .3s;
+}
+
+.nav-booking:hover {
+  background: var(--gold);
+  color: var(--navy) !important;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 8px 13px;
+  border-radius: 6px;
+  font-size: 23px;
+}
 
     /* HERO */
     .about-hero {
