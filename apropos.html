@@ -58,153 +58,24 @@
   border-bottom: 1px solid rgba(230, 189, 104, 0.15);
   transition: background 0.3s ease;
 }
+    
+/* =========================
+   PREMIUM HEADER
+========================= */
 
-    .navbar {
-      min-height: 105px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .brand img {
-      width: 108px;
-      height: 108px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-
-    .header-actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  flex-shrink: 0;
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(3, 12, 25, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(230,189,104,.15);
+  transition: background .3s ease;
 }
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-    .nav-links > a {
-      font-size: 14px;
-      font-weight: 600;
-      white-space: nowrap;
-      transition: color .3s;
-    }
-
-    .nav-links > a:hover,
-    .nav-links > a.active {
-      color: var(--gold);
-    }
-
-    .nav-links > a.active::after {
-      content: "";
-      display: block;
-      height: 2px;
-      margin-top: 6px;
-      background: var(--gold);
-    }
-
-    /* LANGUAGE DROPDOWN */
-
-    .language {
-      position: relative;
-    }
-
-    .language-button {
-      background: rgba(5, 17, 32, .8);
-      border: 1px solid rgba(230, 189, 104, .65);
-      border-radius: 30px;
-      color: white;
-      padding: 9px 15px;
-      white-space: nowrap;
-    }
-    /* PREMIUM LANGUAGE FLAGS */
-
-.language-flag {
-  display: inline-block;
-  width: 22px;
-  height: 15px;
-  object-fit: cover;
-  border-radius: 2px;
-  vertical-align: middle;
-  margin-right: 7px;
-}
-
-.language-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  white-space: nowrap;
-}
-
-.language-menu button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-    .language-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      min-width: 165px;
-      padding: 8px;
-      background: #0b1d32;
-      border: 1px solid var(--gold);
-      border-radius: 10px;
-      box-shadow: 0 15px 35px rgba(0,0,0,.35);
-    }
-
-    .language-menu.open {
-      display: block;
-    }
-
-    .language-menu button {
-      width: 100%;
-      padding: 11px;
-      border: 0;
-      border-radius: 6px;
-      color: white;
-      background: transparent;
-      text-align: left;
-    }
-
-    .language-menu button:hover {
-      background: rgba(230, 189, 104, .15);
-      color: var(--gold);
-    }
-
-    /* RESERVATION BUTTON */
-
-    .nav-booking {
-      border: 2px solid var(--gold);
-      border-radius: 35px;
-      padding: 12px 18px;
-      color: var(--gold) !important;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: background .3s, color .3s;
-    }
-
-    .nav-booking:hover {
-      background: var(--gold);
-      color: var(--navy) !important;
-    }
-
-
-/* PREMIUM HEADER */
 
 .navbar {
   min-height: 105px;
@@ -261,15 +132,19 @@
   background: var(--gold);
 }
 
-/* LANGUAGE DROPDOWN */
+/* LANGUAGE */
 
 .language {
   position: relative;
 }
 
 .language-button {
-  background: rgba(5, 17, 32, .8);
-  border: 1px solid rgba(230, 189, 104, .65);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: rgba(5,17,32,.8);
+  border: 1px solid rgba(230,189,104,.65);
   border-radius: 30px;
   color: white;
   padding: 9px 15px;
@@ -286,10 +161,39 @@
   margin-right: 7px;
 }
 
+.language-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 165px;
+  padding: 8px;
+  background: #0b1d32;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+.language-menu.open {
+  display: block;
+}
+
 .language-menu button {
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 100%;
+  padding: 11px;
+  border: 0;
+  border-radius: 6px;
+  color: white;
+  background: transparent;
+  text-align: left;
+}
+
+.language-menu button:hover {
+  background: rgba(230,189,104,.15);
+  color: var(--gold);
 }
 
 /* BOOKING BUTTON */
