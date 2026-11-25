@@ -71,11 +71,16 @@
       outline: 2px solid var(--gold-light);
       outline-offset: 3px;
     }
+  
+.container {
+  width: min(1200px, calc(100% - 44px));
+  margin-inline: auto;
+}
 
-    .container {
-      width: min(1200px, calc(100% - 44px));
-      margin-inline: auto;
-    }
+.site-header .container {
+  width: min(1240px, 92%);
+}
+
 
     .gold {
       color: var(--gold);
