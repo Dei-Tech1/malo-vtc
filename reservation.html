@@ -672,74 +672,75 @@
 
     /* RESPONSIVE */
 
-    @media (max-width: 1000px) {
-      .nav-links {
-        gap: 14px;
-      }
+/* TABLET RESERVATION LAYOUT */
 
-      .nav-links > a {
-        font-size: 12px;
-      }
+@media (max-width: 1000px) {
+  .reservation-layout {
+    grid-template-columns: 1fr;
+  }
 
-      .reservation-layout {
-        grid-template-columns: 1fr;
-      }
+  .contact-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
-      .contact-sidebar {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
+/* MOBILE NAVIGATION */
 
-    @media (max-width: 800px) {
-      .menu-toggle {
-        display: block;
-      }
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 88px;
+  }
 
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 25px;
-        background: #071525;
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 17px;
-      }
+  .brand img {
+    width: 82px;
+    height: 82px;
+  }
 
-      .nav-links.open {
-        display: flex;
-      }
+  .menu-toggle {
+    display: block;
+  }
 
-      .nav-links > a {
-        font-size: 15px;
-      }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 88px;
+    left: auto;
+    right: 4%;
+    width: 240px;
+    max-width: 92vw;
+    background: rgba(6, 20, 38, .98);
+    padding: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    border: 1px solid rgba(230, 189, 104, .45);
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .4);
+    z-index: 1100;
+  }
 
-      .language-menu {
-        left: 0;
-        right: auto;
-      }
-    }
+  .nav-links.open {
+    display: flex;
+  }
 
-    @media (max-width: 620px) {
-      .container {
-        width: min(100% - 30px, 1200px);
-      }
+  .language-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: auto;
+    width: 165px;
+    min-width: 165px;
+    margin-top: 0;
+    z-index: 1200;
+  }
+}
 
-      .nav-inner {
-        min-height: 76px;
-      }
+/* MOBILE RESERVATION LAYOUT */
 
-      .brand img {
-        width: 53px;
-        height: 53px;
-      }
-
-      .brand-name {
-        font-size: 19px;
-      }
+@media (max-width: 620px) {
+  .container {
+    width: min(100% - 30px, 1200px);
+  }
 
       .reservation-hero {
         min-height: 340px;
