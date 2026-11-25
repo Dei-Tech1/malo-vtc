@@ -439,8 +439,10 @@ button {
 .footer-bottom strong {
   color: var(--gold);
 }
-    /* TABLET */
-    
+    /* TABLET */ 
+
+/* MOBILE NAVIGATION */
+
 @media (max-width: 900px) {
   .navbar {
     min-height: 88px;
@@ -458,30 +460,38 @@ button {
   .nav-links {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: 88px;
+    left: auto;
+    right: 4%;
+    width: 240px;
+    max-width: 92vw;
+    background: rgba(6, 20, 38, .98);
+    padding: 18px;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
-    padding: 20px;
-    background: #030d1b;
-    border-top: 1px solid rgba(230,189,104,.3);
+    gap: 12px;
+    border: 1px solid rgba(230, 189, 104, .45);
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .4);
+    z-index: 1100;
   }
 
   .nav-links.open {
     display: flex;
   }
 
-  .nav-links > a {
-    padding: 14px 10px;
-  }
-
-  .nav-booking {
-    text-align: center;
-    margin-top: 10px;
+  .language-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: auto;
+    width: 165px;
+    min-width: 165px;
+    margin-top: 0;
+    z-index: 1200;
   }
 }
+
 
     
 /* TABLET FOOTER */
