@@ -1742,7 +1742,89 @@ url("malo-services-ceo.png") 75% center/cover no-repeat;
     }
   }
 </style>
+<!-- MALO VTC VIDEO EXPERIENCE -->
 
+<style>
+  .malo-video-section {
+    padding: 90px 0;
+    background: #071321;
+  }
+
+  .malo-video-frame {
+    max-width: 1000px;
+    margin: 40px auto 0;
+    padding: 6px;
+    border: 1px solid var(--gold);
+    border-radius: 18px;
+    background: #030e1d;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    overflow: hidden;
+  }
+
+  .malo-video-frame video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #000;
+  }
+
+  @media (max-width: 600px) {
+    .malo-video-section {
+      padding: 60px 0;
+    }
+
+    .malo-video-frame {
+      margin-top: 25px;
+      padding: 4px;
+      border-radius: 12px;
+    }
+  }
+</style>
+
+<section class="section malo-video-section"
+         id="experience-video">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-label"
+            data-fr="MALO VTC • EN VIDÉO"
+            data-en="MALO VTC • ON FILM">
+        MALO VTC • EN VIDÉO
+      </span>
+
+      <h2 class="section-title"
+          data-fr="Découvrez l'expérience &lt;span&gt;MALO VTC.&lt;/span&gt;"
+          data-en="Discover the &lt;span&gt;MALO VTC experience.&lt;/span&gt;">
+        Découvrez l'expérience <span>MALO VTC.</span>
+      </h2>
+
+      <p class="section-description"
+         data-fr="Plongez dans notre univers, où chaque trajet allie confort, élégance et professionnalisme."
+         data-en="Discover our world, where every journey combines comfort, elegance and professionalism.">
+        Plongez dans notre univers, où chaque trajet
+        allie confort, élégance et professionnalisme.
+      </p>
+
+    </div>
+
+    <div class="malo-video-frame">
+
+      <video controls playsinline preload="metadata">
+        <source src="malo-vtc-web.mp4"
+                type="video/mp4">
+      </video>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- END MALO VTC VIDEO EXPERIENCE -->
 <!-- LUXURY GALLERY -->
 
 <section class="section section-dark" id="galerie">
