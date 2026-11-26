@@ -461,15 +461,30 @@ background-color: #0b1726;
     }
 
     @media (max-width: 600px) {
-      .services-hero {
-        min-height: 740px;
-        background-position: 60% center;
-      }
+      
+.services-hero {
+  min-height: auto;
+  display: block;
+  background:
+    url("malo-services-ceo.png")
+    center top / 100% auto no-repeat;
+  background-color: #0b1726;
+}
 
-      .services-hero-content {
-        padding-top: 155px;
-        padding-bottom: 100px;
-      }
+.services-hero::before,
+.services-hero::after {
+  display: none;
+}
+
+.services-hero-content {
+  padding-top: calc(50vw + 35px);
+  padding-bottom: 60px;
+}
+
+.services-hero h1 {
+  font-size: 36px;
+  line-height: 1.15;
+}
 
       .hero-eyebrow {
         font-size: 10px;
