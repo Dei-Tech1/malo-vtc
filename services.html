@@ -464,12 +464,18 @@ background-color: #0b1726;
     @media (max-width: 600px) {
       
 .services-hero {
-  min-height: auto;
-  display: block;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
   background:
-    
-url("malo-service-hero.png")
-    center top / 100% auto no-repeat;
+    linear-gradient(
+      180deg,
+      rgba(3, 14, 29, .15) 0%,
+      rgba(3, 14, 29, .60) 45%,
+      rgba(3, 14, 29, .85) 100%
+    ),
+    url("malo-service-hero.png")
+    center center / cover no-repeat;
   background-color: #0b1726;
 }
 
@@ -479,7 +485,9 @@ url("malo-service-hero.png")
 }
 
 .services-hero-content {
-  padding-top: calc(50vw + 35px);
+  position: relative;
+  z-index: 2;
+  padding-top: 150px;
   padding-bottom: 60px;
 }
 
